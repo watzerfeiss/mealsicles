@@ -15,6 +15,28 @@ function request(url) {
   });
 }
 
+function adjustShape(meal) {
+  const ingredients = Object.keys(meal)
+    .filter((key) => key.startsWith("strIngredient") && meal[key])
+    .map((key) => {
+      const index = key.match(/([0-9]+)$/)[0];
+      return {
+        ingredient: meal[key],
+        measure: meal["strMeasure" + index],
+      };
+    });
+
+  return {
+    id: meal.idMeal,
+    name: meal.strMeal,
+    category: meal.strCategory,
+    instructions: meal.strInstructions,
+    thumb: meal.strMealThumb,
+    video: meal.strYoutube,
+    ingredients,
+  };
+}
+
 export function getRandomMeal() {
-  return request(url.RANDOM).then((data) => data.meals[0]);
+  return request(url.RANDOM).then((data) => adjustShape(data.meals[0]));
 }

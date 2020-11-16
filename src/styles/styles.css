@@ -1,13 +1,14 @@
 body {
   margin: 0;
   height: 100vh;
-  background-color: ivory;
+  background-color: whitesmoke;
   font-family: "Segoe UI", Verdana, sans-serif;
 }
 
 .app-container {
   max-width: 1000px;
   margin: 0 auto;
+  background: white;
 }
 
 .app-header {

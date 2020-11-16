@@ -23,8 +23,22 @@ export default function App() {
       <button onClick={onGetRandomMeal}>Get random meal</button>
       {randomMeal && (
         <div className="meal">
-          <h2 className="meal-name">{randomMeal.strMeal}</h2>
-          <p className="meal-instructions">{randomMeal.strInstructions}</p>
+          <h2 className="meal-name">{randomMeal.name}</h2>
+          <div className="meal-instructions">
+            {randomMeal.instructions.split(/[\r\n]/).map((p) => (
+              <p>{p}</p>
+            ))}
+          </div>
+          <table>
+            <tbody>
+              {randomMeal.ingredients.map((ing) => (
+                <tr key={ing.ingredient}>
+                  <td>{ing.ingredient}</td>
+                  <td>{ing.measure}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
     </div>
