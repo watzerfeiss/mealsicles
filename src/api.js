@@ -21,6 +21,7 @@ function adjustShape(meal) {
     .map((key) => {
       const index = key.match(/([0-9]+)$/)[0];
       return {
+        index,
         ingredient: meal[key],
         measure: meal["strMeasure" + index],
       };
@@ -31,7 +32,8 @@ function adjustShape(meal) {
     name: meal.strMeal,
     category: meal.strCategory,
     instructions: meal.strInstructions,
-    thumb: meal.strMealThumb,
+    image: meal.strMealThumb,
+    thumbnail: meal.strMealThumb + "/preview",
     video: meal.strYoutube,
     ingredients,
   };
@@ -39,4 +41,10 @@ function adjustShape(meal) {
 
 export function getRandomMeal() {
   return request(url.RANDOM).then((data) => adjustShape(data.meals[0]));
+}
+
+export function search(searchTerm) {
+  return request(url.SEARCH(searchTerm)).then((data) =>
+    data.meals ? data.meals.map(adjustShape) : []
+  );
 }

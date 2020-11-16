@@ -23,3 +23,7 @@ body {
 .app-header h1 {
   margin: 0;
 }
+
+tr:nth-child(even) {
+  background-color: whitesmoke;
+}
