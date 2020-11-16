@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 
+import Header from "./Header";
+
 export default function App() {
-  const [input, setInput] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <>
-      <h1>Mealsicles</h1>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      />
-      <p>Search results for {`'${input}'`}</p>
-    </>
+    <div className="app-container">
+      <Header onSearch={(value) => setSearchTerm(value)} />
+      {searchTerm && <p>Search results for {searchTerm}</p>}
+    </div>
   );
 }

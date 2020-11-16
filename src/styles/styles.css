@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: ivory;
+  font-family: "Segoe UI", Verdana, sans-serif;
+}
+
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: orange;
+  padding: 10px;
+}
+
+.app-header h1 {
+  margin: 0;
+}
