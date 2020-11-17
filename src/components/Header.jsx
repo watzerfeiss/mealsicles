@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Header({ onSearch }) {
+function Header({ onSearch }) {
   const [searchText, setSearchText] = useState("");
 
   return (
@@ -22,3 +22,5 @@ export default function Header({ onSearch }) {
     </header>
   );
 }
+
+export default React.memo(Header);

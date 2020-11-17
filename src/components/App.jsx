@@ -11,9 +11,12 @@ export default function App() {
   const asyncDispatch = useMemo(() => withThunks(dispatch));
 
   const onGetRandomMeal = useCallback(() =>
-    asyncDispatch(actions.setRandomMeal())
+    asyncDispatch(actions.setRandomMeal(), [])
   );
-  const onSearch = useCallback((term) => asyncDispatch(actions.search(term)));
+  const onSearch = useCallback(
+    (term) => asyncDispatch(actions.search(term)),
+    []
+  );
 
   return (
     <div className="app-container">

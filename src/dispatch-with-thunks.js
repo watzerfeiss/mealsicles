@@ -1,7 +1,7 @@
 export default function withThunks(dispatch) {
-  return (action) => {
+  return function asyncDispatch(action) {
     if (typeof action === "function") {
-      return action(dispatch);
+      return action(asyncDispatch);
     }
     return dispatch(action);
   };
