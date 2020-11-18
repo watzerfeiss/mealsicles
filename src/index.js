@@ -1,8 +1,14 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 
-import App from './components/App';
+import App from "./components/App";
 
-import './styles/styles.css'
+import "./styles/styles.css";
 
-ReactDOM.render(<App />, document.getElementById('app'))
+// parcel magic
+// eslint-disable-next-line
+if (module.hot) {
+  module.hot.accept(); // eslint-disable-line
+}
+
+ReactDOM.render(<App />, document.getElementById("app"));

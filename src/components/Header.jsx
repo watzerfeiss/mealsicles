@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
-function Header({ onSearch }) {
+import { search } from "../actions";
+
+function Header({ dispatch }) {
   const [searchText, setSearchText] = useState("");
 
   return (
@@ -9,7 +11,7 @@ function Header({ onSearch }) {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          onSearch(searchText);
+          dispatch(search(searchText));
         }}
       >
         <input
