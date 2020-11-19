@@ -85,3 +85,44 @@ tr:nth-child(even) {
   background-color: #f0f0ff;
   border-bottom-color: navy;
 }
+
+.meal-details {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-areas:
+    "title title"
+    "image tags"
+    "image instr"
+    "ingr instr"
+    "foot foot";
+  grid-gap: 20px;
+
+  padding: 20px;
+}
+
+.meal-details__title {
+  grid-area: title;
+  margin: 0;
+}
+
+.meal-details__image {
+  grid-area: image;
+  width: 100%;
+  height: auto;
+
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px -1px grey;
+}
+
+.meal-instructions {
+  grid-area: instr;
+}
+
+.meal-ingredients {
+  grid-area: ingr;
+  display: grid;
+}
+/* 
+.meal-ingredients td:first-child {
+  text-align: right;
+} */

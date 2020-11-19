@@ -1,8 +1,9 @@
-import React, { useCallback, useReducer, useMemo } from "react";
+import React, { useReducer, useMemo } from "react";
 
 import Header from "./Header";
-import MealOfTheDay from "./MealOfTheDay";
 import MainNav from "./MainNav";
+import MealOfTheDay from "./MealOfTheDay";
+import MealDetails from "./MealDetails";
 
 import rootReducer from "../reducers";
 import withThunks from "../dispatch-with-thunks";
@@ -16,6 +17,7 @@ export default function App() {
       <Header dispatch={asyncDispatch} />
       <MainNav />
       <MealOfTheDay dispatch={asyncDispatch} meal={state.randomMeal} />
+      {state.displayedMeal && <MealDetails meal={state.displayedMeal} />}
       {state.search?.term && (
         <>
           <p>Search results for {state.search.term}</p>

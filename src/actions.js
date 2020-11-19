@@ -2,6 +2,25 @@ import * as api from "./api";
 
 // async actions
 
+export function setDisplayedMeal(id) {
+  return (dispatch) => {
+    api
+      .fetchMeal(id)
+      .then((data) =>
+        dispatch({
+          type: "display-meal/success",
+          payload: data,
+        })
+      )
+      .catch((err) =>
+        dispatch({
+          type: "display-meal/faailure",
+          payload: err,
+        })
+      );
+  };
+}
+
 export function search(term) {
   return (dispatch) => {
     dispatch({

@@ -48,3 +48,7 @@ export function search(searchTerm) {
     data.meals ? data.meals.map(adjustShape) : []
   );
 }
+
+export function fetchMeal(id) {
+  return request(url.LOOKUP_ID(id)).then((data) => adjustShape(data.meals[0]));
+}

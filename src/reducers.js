@@ -1,5 +1,11 @@
 export default function rootReducer(state, action) {
   switch (action.type) {
+    case "display-meal/success":
+      return {
+        ...state,
+        displayedMeal: action.payload,
+      };
+
     case "set-random-meal/success":
       return {
         ...state,
