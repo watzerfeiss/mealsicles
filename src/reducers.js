@@ -20,10 +20,10 @@ export default function rootReducer(state, action) {
         currentView: "meal-details",
       };
 
-    case "set-random-meal/success":
+    case "set-motd/success":
       return {
         ...state,
-        randomMeal: action.payload,
+        mealOfTheDay: action.payload,
       };
 
     case "search/start":

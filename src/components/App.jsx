@@ -35,7 +35,7 @@ export default function App() {
     case "home":
     default:
       mainView = (
-        <MealOfTheDay dispatch={asyncDispatch} meal={state.randomMeal} />
+        <MealOfTheDay dispatch={asyncDispatch} meal={state.mealOfTheDay} />
       );
   }
 

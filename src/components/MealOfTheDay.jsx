@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 
-import { setDisplayedMeal, setRandomMeal, setView } from "../actions";
+import { setDisplayedMeal, setMealOfTheDay, setView } from "../actions";
 
 export default function MealOfTheDay({ dispatch, meal }) {
   useEffect(() => {
-    dispatch(setRandomMeal());
+    dispatch(setMealOfTheDay());
   }, []);
 
   return meal ? (

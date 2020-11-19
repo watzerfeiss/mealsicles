@@ -6,6 +6,10 @@ const url = {
   RANDOM: "https://www.themealdb.com/api/json/v1/1/random.php",
 };
 
+const ls = localStorage;
+const ss = sessionStorage;
+const oneDay = 24 * 3600 * 1000;
+
 function request(url) {
   return fetch(url).then((response) => {
     if (!response.ok) {
@@ -39,8 +43,21 @@ function adjustShape(meal) {
   };
 }
 
-export function getRandomMeal() {
-  return request(url.RANDOM).then((data) => adjustShape(data.meals[0]));
+export function getMealOfTheDay() {
+  if (
+    ls.motd &&
+    ls.motdTimestamp &&
+    new Date() - new Date(ls.motdTimestamp) < oneDay
+  ) {
+    return Promise.resolve(JSON.parse(ls.motd));
+  } else {
+    return request(url.RANDOM).then((data) => {
+      const meal = adjustShape(data.meals[0]);
+      ls.motd = JSON.stringify(meal);
+      ls.motdTimestamp = new Date();
+      return meal;
+    });
+  }
 }
 
 export function search(searchTerm) {

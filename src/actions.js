@@ -54,19 +54,19 @@ export function search(term) {
   };
 }
 
-export function setRandomMeal() {
+export function setMealOfTheDay() {
   return (dispatch) => {
     api
-      .getRandomMeal()
+      .getMealOfTheDay()
       .then((data) =>
         dispatch({
-          type: "set-random-meal/success",
+          type: "set-motd/success",
           payload: data,
         })
       )
       .catch((err) =>
         dispatch({
-          type: "set-random-meal/failure",
+          type: "set-motd/failure",
           payload: err,
         })
       );
