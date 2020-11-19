@@ -9,6 +9,7 @@ body {
   max-width: 1000px;
   margin: 0 auto;
   background: white;
+  /* box-shadow: 0 0 20px -5px lightgrey; */
 }
 
 .app-header {
@@ -81,7 +82,7 @@ tr:nth-child(even) {
   border-bottom: 2px solid orange;
 }
 
-.app-nav__item a.current-page {
+.app-nav__item a.current-view {
   background-color: #f0f0ff;
   border-bottom-color: navy;
 }

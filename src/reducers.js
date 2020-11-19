@@ -1,5 +1,11 @@
 export default function rootReducer(state, action) {
   switch (action.type) {
+    case "set-view":
+      return {
+        ...state,
+        currentView: action.payload,
+      };
+
     case "display-meal/success":
       return {
         ...state,

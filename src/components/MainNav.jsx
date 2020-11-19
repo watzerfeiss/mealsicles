@@ -1,22 +1,42 @@
 import React from "react";
 
-export default function MainNav() {
+import NavLink from "./NavLink";
+
+export default function MainNav({ dispatch, currentView }) {
   return (
     <nav className="app-nav">
       <ul>
         <li className="app-nav__item">
-          <a href="">Favourites</a>
+          <NavLink
+            dispatch={dispatch}
+            currentView={currentView}
+            view="favourites"
+            text="Favourites"
+          />
         </li>
         <li className="app-nav__item">
-          <a href="" className="current-page">
-            Categories
-          </a>
+          <NavLink
+            dispatch={dispatch}
+            currentView={currentView}
+            view="categories"
+            text="Categories"
+          />
         </li>
         <li className="app-nav__item">
-          <a href="">Areas</a>
+          <NavLink
+            dispatch={dispatch}
+            currentView={currentView}
+            view="areas"
+            text="Areas"
+          />
         </li>
         <li className="app-nav__item">
-          <a href="">Ingredients</a>
+          <NavLink
+            dispatch={dispatch}
+            currentView={currentView}
+            view="ingredients"
+            text="Ingredients"
+          />
         </li>
       </ul>
     </nav>

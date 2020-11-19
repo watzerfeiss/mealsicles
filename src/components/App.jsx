@@ -15,17 +15,17 @@ export default function App() {
   return (
     <div className="app-container">
       <Header dispatch={asyncDispatch} />
-      <MainNav />
+      <MainNav dispatch={dispatch} currentView={state.currentView} />
       <MealOfTheDay dispatch={asyncDispatch} meal={state.randomMeal} />
       {state.displayedMeal && <MealDetails meal={state.displayedMeal} />}
       {state.search?.term && (
         <>
           <p>Search results for {state.search.term}</p>
-          <ul>
+          {/* <ul>
             {state.search.results?.map((meal) => (
               <li key={meal.id}>{meal.name}</li>
             ))}
-          </ul>
+          </ul> */}
         </>
       )}
     </div>

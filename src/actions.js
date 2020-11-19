@@ -1,5 +1,12 @@
 import * as api from "./api";
 
+export function setView(view) {
+  return {
+    type: "set-view",
+    payload: view,
+  };
+}
+
 // async actions
 
 export function setDisplayedMeal(id) {
