@@ -11,6 +11,9 @@ export function setView(view) {
 
 export function setDisplayedMeal(id) {
   return (dispatch) => {
+    dispatch({
+      type: "display-meal/start",
+    });
     api
       .fetchMeal(id)
       .then((data) =>
@@ -21,7 +24,7 @@ export function setDisplayedMeal(id) {
       )
       .catch((err) =>
         dispatch({
-          type: "display-meal/faailure",
+          type: "display-meal/failure",
           payload: err,
         })
       );

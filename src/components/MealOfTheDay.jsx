@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { setDisplayedMeal, setRandomMeal } from "../actions";
+import { setDisplayedMeal, setRandomMeal, setView } from "../actions";
 
 export default function MealOfTheDay({ dispatch, meal }) {
   useEffect(() => {

@@ -6,10 +6,18 @@ export default function rootReducer(state, action) {
         currentView: action.payload,
       };
 
+    case "display-meal/start":
+      return {
+        ...state,
+        currentView: "meal-details",
+        displayedMeal: null,
+      };
+
     case "display-meal/success":
       return {
         ...state,
         displayedMeal: action.payload,
+        currentView: "meal-details",
       };
 
     case "set-random-meal/success":

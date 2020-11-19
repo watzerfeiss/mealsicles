@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 
-import { search } from "../actions";
+import { search, setView } from "../actions";
 
 function Header({ dispatch }) {
   const [searchText, setSearchText] = useState("");
 
   return (
     <header className="app-header">
-      <h1>Mealsicles</h1>
+      <h1>
+        <a
+          href="home"
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(setView("home"));
+          }}
+        >
+          Mealsicles
+        </a>
+      </h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();
