@@ -29,7 +29,7 @@ export default function rootReducer(state, action) {
     case "search/start":
       return {
         ...state,
-        activePage: "search",
+        currentView: "search",
         search: {
           ...state.search,
           term: action.payload,

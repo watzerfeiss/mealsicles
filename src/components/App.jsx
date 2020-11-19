@@ -7,6 +7,7 @@ import MealDetails from "./MealDetails";
 
 import rootReducer from "../reducers";
 import withThunks from "../dispatch-with-thunks";
+import MealList from "./MealList";
 
 export default function App() {
   const [state, dispatch] = useReducer(rootReducer, {});
@@ -21,6 +22,14 @@ export default function App() {
       break;
     case "search":
     case "favourites":
+      mainView = (
+        <MealList
+          dispatch={dispatch}
+          view={state.currentView}
+          searchState={state.search}
+        />
+      );
+      break;
     case "categories":
     case "ingredients":
     case "home":
@@ -35,16 +44,6 @@ export default function App() {
       <Header dispatch={asyncDispatch} />
       <MainNav dispatch={asyncDispatch} currentView={state.currentView} />
       <main>{mainView}</main>
-      {/* {state.search?.term && (
-        <>
-          <p>Search results for {state.search.term}</p>
-           <ul>
-            {state.search.results?.map((meal) => (
-              <li key={meal.id}>{meal.name}</li>
-            ))}
-          </ul> 
-        </>
-      )} */}
     </div>
   );
 }
