@@ -8,6 +8,7 @@ import MealDetails from "./MealDetails";
 import rootReducer from "../reducers";
 import withThunks from "../dispatch-with-thunks";
 import SearchView from "./SearchView";
+import HomePage from "./HomePage";
 
 export default function App() {
   const [state, _dispatch] = useReducer(rootReducer, {});
@@ -29,13 +30,13 @@ export default function App() {
     case "ingredients":
     case "home":
     default:
-      mainView = <MealOfTheDay dispatch={dispatch} meal={state.mealOfTheDay} />;
+      mainView = <HomePage dispatch={dispatch} motd={state.mealOfTheDay} />;
   }
 
   return (
     <div className="app-container">
       <Header dispatch={dispatch} />
-      <MainNav dispatch={dispatch} currentView={state.currentView} />
+      <MainNav {...{ dispatch, currentView: state.currentView }} />
       <main>{mainView}</main>
     </div>
   );

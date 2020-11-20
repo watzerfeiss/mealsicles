@@ -6,6 +6,7 @@ body {
 
 .app-container {
   max-width: 1000px;
+  min-height: 100vh;
   margin: 0 auto;
   background: white;
   /* box-shadow: 0 0 20px -5px lightgrey; */
