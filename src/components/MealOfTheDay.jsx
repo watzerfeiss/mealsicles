@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 
 import { setDisplayedMeal, setMealOfTheDay, setView } from "../actions";
+import * as shapes from "../shapes";
 
 export default function MealOfTheDay({ dispatch, meal }) {
   useEffect(() => {
@@ -26,3 +28,8 @@ export default function MealOfTheDay({ dispatch, meal }) {
     </article>
   ) : null;
 }
+
+MealOfTheDay.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  meal: shapes.meal,
+};

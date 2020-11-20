@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import { search, setView } from "../actions";
 
@@ -34,5 +35,9 @@ function Header({ dispatch }) {
     </header>
   );
 }
+
+Header.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
 
 export default React.memo(Header);

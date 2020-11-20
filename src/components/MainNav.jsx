@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import NavLink from "./NavLink";
 
@@ -42,3 +43,8 @@ export default function MainNav({ dispatch, currentView }) {
     </nav>
   );
 }
+
+MainNav.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  currentView: PropTypes.string.isRequired,
+};

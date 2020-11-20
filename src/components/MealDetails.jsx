@@ -1,5 +1,7 @@
 import React from "react";
 
+import * as shapes from "../shapes";
+
 export default function MealDetails({ meal }) {
   return meal ? (
     <article className="meal-details">
@@ -27,3 +29,7 @@ export default function MealDetails({ meal }) {
     </article>
   ) : null;
 }
+
+MealDetails.propTypes = {
+  meal: shapes.meal,
+};

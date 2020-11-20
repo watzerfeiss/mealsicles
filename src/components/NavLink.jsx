@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { setView } from "../actions";
 
@@ -16,3 +17,10 @@ export default function NavLink({ dispatch, view, currentView, text }) {
     </a>
   );
 }
+
+NavLink.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  view: PropTypes.string.isRequired,
+  currentView: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
