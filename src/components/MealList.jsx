@@ -1,10 +1,9 @@
-import React, { useCallback } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import MealCard from "./MealCard";
 
 import * as shapes from "../shapes";
-import { setDisplayedMeal } from "../actions";
 
 export default function MealList({ dispatch, meals }) {
   return (

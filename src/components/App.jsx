@@ -21,10 +21,11 @@ export default function App() {
       );
       break;
     case "search":
-    case "favourites":
       mainView = <SearchView dispatch={dispatch} searchState={state.search} />;
       break;
+    case "favourites":
     case "categories":
+    case "areas":
     case "ingredients":
     case "home":
     default:
