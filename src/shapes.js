@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 export const meal = PropTypes.shape({
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   category: PropTypes.string,
   instructions: PropTypes.string,
@@ -14,4 +14,13 @@ export const meal = PropTypes.shape({
       measure: PropTypes.string.isRequired,
     })
   ),
+});
+
+export const mealList = PropTypes.arrayOf(meal);
+
+export const searchState = PropTypes.shape({
+  term: PropTypes.string,
+  error: PropTypes.any,
+  isLoading: PropTypes.bool,
+  results: mealList,
 });

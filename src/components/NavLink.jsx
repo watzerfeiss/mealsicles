@@ -21,6 +21,6 @@ export default function NavLink({ dispatch, view, currentView, text }) {
 NavLink.propTypes = {
   dispatch: PropTypes.func.isRequired,
   view: PropTypes.string.isRequired,
-  currentView: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  currentView: PropTypes.string,
+  text: PropTypes.string,
 };

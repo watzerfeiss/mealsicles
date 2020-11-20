@@ -7,11 +7,11 @@ import MealDetails from "./MealDetails";
 
 import rootReducer from "../reducers";
 import withThunks from "../dispatch-with-thunks";
-import MealList from "./MealList";
+import SearchView from "./SearchView";
 
 export default function App() {
-  const [state, dispatch] = useReducer(rootReducer, {});
-  const asyncDispatch = useMemo(() => withThunks(dispatch), []);
+  const [state, _dispatch] = useReducer(rootReducer, {});
+  const dispatch = useMemo(() => withThunks(_dispatch), []);
 
   let mainView = null;
   switch (state.currentView) {
@@ -22,27 +22,19 @@ export default function App() {
       break;
     case "search":
     case "favourites":
-      mainView = (
-        <MealList
-          dispatch={dispatch}
-          view={state.currentView}
-          searchState={state.search}
-        />
-      );
+      mainView = <SearchView dispatch={dispatch} searchState={state.search} />;
       break;
     case "categories":
     case "ingredients":
     case "home":
     default:
-      mainView = (
-        <MealOfTheDay dispatch={asyncDispatch} meal={state.mealOfTheDay} />
-      );
+      mainView = <MealOfTheDay dispatch={dispatch} meal={state.mealOfTheDay} />;
   }
 
   return (
     <div className="app-container">
-      <Header dispatch={asyncDispatch} />
-      <MainNav dispatch={asyncDispatch} currentView={state.currentView} />
+      <Header dispatch={dispatch} />
+      <MainNav dispatch={dispatch} currentView={state.currentView} />
       <main>{mainView}</main>
     </div>
   );

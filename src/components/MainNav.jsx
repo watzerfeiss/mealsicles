@@ -46,5 +46,5 @@ export default function MainNav({ dispatch, currentView }) {
 
 MainNav.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  currentView: PropTypes.string.isRequired,
+  currentView: PropTypes.string,
 };
