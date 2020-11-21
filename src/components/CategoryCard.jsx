@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { selectMeals } from "../actions";
 import * as shapes from "../shapes";
 
 export default function CategoryCard({
@@ -16,7 +17,7 @@ export default function CategoryCard({
         href=""
         onClick={(e) => {
           e.preventDefault();
-          //TODO category search
+          dispatch(selectMeals("category", name));
         }}
       >
         See meals in this category

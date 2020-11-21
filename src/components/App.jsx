@@ -10,6 +10,7 @@ import withThunks from "../dispatch-with-thunks";
 import SearchView from "./SearchView";
 import HomePage from "./HomePage";
 import { CategoriesView } from "./CategoriesView";
+import MealSelectionView from "./MealSelectionView";
 
 export default function App() {
   const [state, _dispatch] = useReducer(rootReducer, {});
@@ -23,7 +24,12 @@ export default function App() {
       );
       break;
     case "search":
-      mainView = <SearchView dispatch={dispatch} searchState={state.search} />;
+      mainView = <SearchView {...{ dispatch, searchState: state.search }} />;
+      break;
+    case "selection":
+      mainView = (
+        <MealSelectionView {...{ dispatch, selection: state.selection }} />
+      );
       break;
     case "favourites":
     case "categories":
