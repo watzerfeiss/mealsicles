@@ -35,5 +35,5 @@ export function setMealOfTheDay() {
 }
 
 export function loadCategories() {
-  return asyncAction({ type: "load-categories" }, api.loadCategories);
+  return asyncAction({ type: "load-categories" }, api.fetchCategories);
 }

@@ -33,6 +33,7 @@ export default function rootReducer(state, action) {
         search: {
           ...state.search,
           term: action.payload,
+          results: null,
           error: null,
           isLoading: true,
         },
@@ -57,6 +58,12 @@ export default function rootReducer(state, action) {
           error: action.payload,
           isLoading: false,
         },
+      };
+
+    case "load-categories/success":
+      return {
+        ...state,
+        categories: action.payload,
       };
 
     default:

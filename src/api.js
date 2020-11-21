@@ -4,6 +4,7 @@ const url = {
   LOOKUP_ID: (id) =>
     `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`,
   RANDOM: "https://www.themealdb.com/api/json/v1/1/random.php",
+  CATEGORIES: "https://www.themealdb.com/api/json/v1/1/categories.php",
 };
 
 const ls = localStorage;
@@ -43,6 +44,15 @@ function adjustShape(meal) {
   };
 }
 
+function adjustCategoryShape(cat) {
+  return {
+    id: cat.idCategory,
+    name: cat.strCategory,
+    image: cat.strCategoryThumb,
+    description: cat.strCategoryDescription,
+  };
+}
+
 export function getMealOfTheDay() {
   if (
     ls.motd &&
@@ -68,4 +78,10 @@ export function search(searchTerm) {
 
 export function fetchMeal(id) {
   return request(url.LOOKUP_ID(id)).then((data) => adjustShape(data.meals[0]));
+}
+
+export function fetchCategories() {
+  return request(url.CATEGORIES).then((data) =>
+    data.categories.map(adjustCategoryShape)
+  );
 }

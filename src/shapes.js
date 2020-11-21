@@ -18,6 +18,13 @@ export const meal = PropTypes.shape({
 
 export const mealList = PropTypes.arrayOf(meal);
 
+export const category = PropTypes.shape({
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+});
+
 export const searchState = PropTypes.shape({
   term: PropTypes.string,
   error: PropTypes.any,
