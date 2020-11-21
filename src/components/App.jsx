@@ -9,6 +9,7 @@ import rootReducer from "../reducers";
 import withThunks from "../dispatch-with-thunks";
 import SearchView from "./SearchView";
 import HomePage from "./HomePage";
+import { CategoriesView } from "./CategoriesView";
 
 export default function App() {
   const [state, _dispatch] = useReducer(rootReducer, {});
@@ -28,9 +29,13 @@ export default function App() {
     case "categories":
     case "areas":
     case "ingredients":
+      mainView = (
+        <CategoriesView {...{ dispatch, categories: state.categories }} />
+      );
+      break;
     case "home":
     default:
-      mainView = <HomePage dispatch={dispatch} motd={state.mealOfTheDay} />;
+      mainView = <HomePage {...{ dispatch, state }} />;
   }
 
   return (

@@ -96,6 +96,15 @@ tr:nth-child(even) {
   border-bottom-color: navy;
 }
 
+.homepage-section {
+  display: grid;
+  place-items: center;
+
+  margin: 0 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid whitesmoke;
+}
+
 .meal-details {
   display: grid;
   grid-template-columns: 2fr 3fr;
