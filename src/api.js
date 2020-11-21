@@ -5,6 +5,14 @@ const url = {
     `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`,
   RANDOM: "https://www.themealdb.com/api/json/v1/1/random.php",
   CATEGORIES: "https://www.themealdb.com/api/json/v1/1/categories.php",
+  SELECT: {
+    category: (term) =>
+      `https://www.themealdb.com/api/json/v1/1/filter.php?c=${term}`,
+    area: (term) =>
+      `https://www.themealdb.com/api/json/v1/1/filter.php?a=${term}`,
+    ingredient: (term) =>
+      `https://www.themealdb.com/api/json/v1/1/filter.php?i=${term}`,
+  },
 };
 
 const ls = localStorage;
@@ -83,5 +91,11 @@ export function fetchMeal(id) {
 export function fetchCategories() {
   return request(url.CATEGORIES).then((data) =>
     data.categories.map(adjustCategoryShape)
+  );
+}
+
+export function selectMeals(type, term) {
+  return request(url.SELECT[type](term)).then((data) =>
+    data.meals.map(adjustShape)
   );
 }

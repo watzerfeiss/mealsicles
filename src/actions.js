@@ -37,3 +37,12 @@ export function setMealOfTheDay() {
 export function loadCategories() {
   return asyncAction({ type: "load-categories" }, api.fetchCategories);
 }
+
+export function selectMeals(selectionType, selectionTerm) {
+  return asyncAction(
+    { type: "select-meals", selectionType, selectionTerm },
+    api.selectMeals,
+    selectionType,
+    selectionTerm
+  );
+}

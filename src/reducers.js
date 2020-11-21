@@ -66,6 +66,26 @@ export default function rootReducer(state, action) {
         categories: action.payload,
       };
 
+    case "select-meals/start":
+      return {
+        ...state,
+        currentView: "selection",
+        selection: {
+          type: action.selectionType,
+          term: action.selectionTerm,
+          results: null,
+        },
+      };
+
+    case "select-meals/success":
+      return {
+        ...state,
+        selection: {
+          ...state.selection,
+          results: action.payload,
+        },
+      };
+
     default:
       return state;
   }
