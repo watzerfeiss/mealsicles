@@ -9,66 +9,31 @@ export function setView(view) {
 
 // async actions
 
-export function setDisplayedMeal(id) {
+function asyncAction(initAction, asyncFunction, ...args) {
   return (dispatch) => {
-    dispatch({
-      type: "display-meal/start",
-    });
-    api
-      .fetchMeal(id)
-      .then((data) =>
-        dispatch({
-          type: "display-meal/success",
-          payload: data,
-        })
-      )
-      .catch((err) =>
-        dispatch({
-          type: "display-meal/failure",
-          payload: err,
-        })
-      );
+    dispatch({ ...initAction, type: `${initAction.type}/start` });
+    asyncFunction(...args)
+      .then((data) => {
+        dispatch({ type: `${initAction.type}/success`, payload: data });
+      })
+      .catch((err) => {
+        dispatch({ type: `${initAction.type}/failure`, payload: err });
+      });
   };
+}
+
+export function setDisplayedMeal(id) {
+  return asyncAction({ type: "display-meal" }, api.fetchMeal, id);
 }
 
 export function search(term) {
-  return (dispatch) => {
-    dispatch({
-      type: "search/start",
-      payload: term,
-    });
-    api
-      .search(term)
-      .then((data) =>
-        dispatch({
-          type: "search/success",
-          payload: data,
-        })
-      )
-      .catch((err) =>
-        dispatch({
-          type: "search/failure",
-          payload: err,
-        })
-      );
-  };
+  return asyncAction({ type: "search", payload: term }, api.search, term);
 }
 
 export function setMealOfTheDay() {
-  return (dispatch) => {
-    api
-      .getMealOfTheDay()
-      .then((data) =>
-        dispatch({
-          type: "set-motd/success",
-          payload: data,
-        })
-      )
-      .catch((err) =>
-        dispatch({
-          type: "set-motd/failure",
-          payload: err,
-        })
-      );
-  };
+  return asyncAction({ type: "set-motd" }, api.getMealOfTheDay);
+}
+
+export function loadCategories() {
+  return asyncAction({ type: "load-categories" }, api.loadCategories);
 }
