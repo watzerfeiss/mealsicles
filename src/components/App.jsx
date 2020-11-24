@@ -2,11 +2,11 @@ import React, { useReducer, useMemo } from "react";
 
 import Header from "./Header";
 import MainNav from "./MainNav";
-import MealOfTheDay from "./MealOfTheDay";
 import MealDetails from "./MealDetails";
 
 import rootReducer from "../store/reducers";
-import withThunks from "../store/dispatch-with-thunks";
+import useAsyncStore from "../hooks/use-async-store";
+
 import SearchView from "./SearchView";
 import HomePage from "./HomePage";
 import CategoriesView from "./CategoriesView";
@@ -14,8 +14,7 @@ import MealSelectionView from "./MealSelectionView";
 import SelectionOptionsList from "./SelectionOptionsList";
 
 export default function App() {
-  const [state, _dispatch] = useReducer(rootReducer, {});
-  const dispatch = useMemo(() => withThunks(_dispatch), []);
+  const [state, dispatch] = useAsyncStore(rootReducer, {});
 
   let mainView = null;
   switch (state.currentView) {
