@@ -5,6 +5,7 @@ import CategoryCard from "./CategoryCard";
 
 import { loadSelectionOptions, setView } from "../actions";
 import * as shapes from "../shapes";
+import { selectMeals } from "../actions";
 
 export default function SelectionOptionsList({
   dispatch,
@@ -25,7 +26,7 @@ export default function SelectionOptionsList({
   //todo shuffle
   return (
     <div className={`${type}${isPreview ? ` ${type}--preview` : ""}`}>
-      {options ? (
+      {options && (
         <ul className={"category-list"}>
           {options.slice(0, numItemsToShow).map((option) => {
             let item = null;
@@ -34,14 +35,37 @@ export default function SelectionOptionsList({
                 item = <CategoryCard {...{ dispatch, category: option }} />;
                 break;
               case "areas":
-                item = <a href="">{option.name}</a>;
+                item = (
+                  <a
+                    href=""
+                    onClick={(e) => {
+                      e.preventDefault();
+                      dispatch(selectMeals("area", option.name));
+                    }}
+                  >
+                    {option.name}
+                  </a>
+                );
+                break;
+              case "ingredients":
+                item = (
+                  <a
+                    href=""
+                    onClick={(e) => {
+                      e.preventDefault();
+                      dispatch(selectMeals("ingredient", option.name));
+                    }}
+                  >
+                    {option.name}
+                  </a>
+                );
                 break;
             }
 
             return <li key={option.id || option.name}>{item}</li>;
           })}
         </ul>
-      ) : null}
+      )}
       {isPreview && (
         <a
           href=""

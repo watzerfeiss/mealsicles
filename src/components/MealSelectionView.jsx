@@ -6,9 +6,11 @@ import MealCard from "./MealCard";
 import * as shapes from "../shapes";
 
 const headings = {
-  category: (name) => `Meals in the ${name} category`,
-  area: (name) => `Meals from the ${name} area`,
-  ingredient: (name) => `Meals made with ${name}`,
+  category: (count, name) =>
+    `${count} meal${count > 1 ? "s" : ""} in the ${name} category`,
+  area: (count, name) => `${count} ${name} meal${count > 1 ? "s" : ""}`,
+  ingredient: (count, name) =>
+    `${count} meal${count > 1 ? "s" : ""} made with ${name}`,
 };
 
 export default function MealSelectionView({
@@ -17,15 +19,17 @@ export default function MealSelectionView({
 }) {
   return (
     <div className="meal-selection">
-      <h2>{headings[type](term)}</h2>
       {results && (
-        <ul>
-          {results.map((meal) => (
-            <li key={meal.id}>
-              <MealCard {...{ dispatch, meal }} />
-            </li>
-          ))}
-        </ul>
+        <>
+          <h2>{headings[type](results.length, term)}</h2>
+          <ul>
+            {results.map((meal) => (
+              <li key={meal.id}>
+                <MealCard {...{ dispatch, meal }} />
+              </li>
+            ))}
+          </ul>
+        </>
       )}
     </div>
   );

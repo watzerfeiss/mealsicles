@@ -11,6 +11,7 @@ import SearchView from "./SearchView";
 import HomePage from "./HomePage";
 import { CategoriesView } from "./CategoriesView";
 import MealSelectionView from "./MealSelectionView";
+import SelectionOptionsList from "./SelectionOptionsList";
 
 export default function App() {
   const [state, _dispatch] = useReducer(rootReducer, {});
@@ -41,7 +42,22 @@ export default function App() {
       );
       break;
     case "areas":
+      mainView = (
+        <SelectionOptionsList
+          {...{ dispatch, selectionTypes: state.selectionTypes, type: "areas" }}
+        />
+      );
+      break;
     case "ingredients":
+      mainView = (
+        <SelectionOptionsList
+          {...{
+            dispatch,
+            selectionTypes: state.selectionTypes,
+            type: "ingredients",
+          }}
+        />
+      );
       break;
     case "home":
     default:
