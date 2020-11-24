@@ -5,11 +5,11 @@ import MealOfTheDay from "./MealOfTheDay";
 import SearchForm from "./SearchForm";
 
 import * as shapes from "../shapes";
-import CategoryList from "./CategoryList";
+import SelectionOptionsList from "./SelectionOptionsList";
 
 export default function HomePage({
   dispatch,
-  state: { mealOfTheDay, categories },
+  state: { mealOfTheDay, selectionTypes },
 }) {
   return (
     <>
@@ -23,12 +23,21 @@ export default function HomePage({
 
       <section className="homepage-section">
         <h2>Meal categories</h2>
-        <CategoryList {...{ dispatch, categories }} isPreview />
+        <SelectionOptionsList
+          {...{ dispatch, selectionTypes }}
+          isPreview
+          type="categories"
+        />
       </section>
 
       <section className="homepage-section">
         <h2>Areas of origin</h2>
         <p className="subheading">Meals from around the world</p>
+        <SelectionOptionsList
+          {...{ dispatch, selectionTypes }}
+          isPreview
+          type="areas"
+        />
       </section>
     </>
   );

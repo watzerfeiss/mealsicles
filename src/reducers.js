@@ -16,14 +16,14 @@ export default function rootReducer(state, action) {
     case "display-meal/success":
       return {
         ...state,
-        displayedMeal: action.payload,
+        displayedMeal: action.payload.data,
         currentView: "meal-details",
       };
 
     case "set-motd/success":
       return {
         ...state,
-        mealOfTheDay: action.payload,
+        mealOfTheDay: action.payload.data,
       };
 
     case "search/start":
@@ -32,7 +32,7 @@ export default function rootReducer(state, action) {
         currentView: "search",
         search: {
           ...state.search,
-          term: action.payload,
+          term: action.payload.term,
           results: null,
           error: null,
           isLoading: true,
@@ -44,7 +44,7 @@ export default function rootReducer(state, action) {
         ...state,
         search: {
           ...state.search,
-          results: action.payload,
+          results: action.payload.data,
           error: null,
           isLoading: false,
         },
@@ -55,15 +55,18 @@ export default function rootReducer(state, action) {
         ...state,
         search: {
           ...state.search,
-          error: action.payload,
+          error: action.payload.err,
           isLoading: false,
         },
       };
 
-    case "load-categories/success":
+    case "load-selection-options/success":
       return {
         ...state,
-        categories: action.payload,
+        selectionTypes: {
+          ...state.selectionTypes,
+          [action.payload.optionsType]: action.payload.data,
+        },
       };
 
     case "select-meals/start":
@@ -71,8 +74,8 @@ export default function rootReducer(state, action) {
         ...state,
         currentView: "selection",
         selection: {
-          type: action.selectionType,
-          term: action.selectionTerm,
+          type: action.payload.selectionType,
+          term: action.payload.selectionTerm,
           results: null,
         },
       };
@@ -82,7 +85,7 @@ export default function rootReducer(state, action) {
         ...state,
         selection: {
           ...state.selection,
-          results: action.payload,
+          results: action.payload.data,
         },
       };
 

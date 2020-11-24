@@ -1,12 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import CategoryList from "./CategoryList";
+import SelectionOptionsList from "./SelectionOptionsList";
 
 import * as shapes from "../shapes";
 
-export function CategoriesView({ dispatch, categories }) {
-  return <CategoryList {...{ dispatch, categories }} />;
+export function CategoriesView({ dispatch, selectionTypes }) {
+  return (
+    <SelectionOptionsList {...{ dispatch, selectionTypes }} type="categories" />
+  );
 }
 
 CategoriesView.propTypes = {

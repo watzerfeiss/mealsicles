@@ -5,6 +5,8 @@ const url = {
     `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`,
   RANDOM: "https://www.themealdb.com/api/json/v1/1/random.php",
   CATEGORIES: "https://www.themealdb.com/api/json/v1/1/categories.php",
+  AREAS: "https://www.themealdb.com/api/json/v1/1/list.php?a=list",
+  INGREDIENTS: "https://www.themealdb.com/api/json/v1/1/list.php?i=list",
   SELECT: {
     category: (term) =>
       `https://www.themealdb.com/api/json/v1/1/filter.php?c=${term}`,
@@ -18,6 +20,8 @@ const url = {
 const ls = localStorage;
 const ss = sessionStorage;
 const motdLifetime = 24 * 3600 * 1000;
+
+// helper functions
 
 function request(url) {
   return fetch(url).then((response) => {
@@ -61,6 +65,22 @@ function adjustCategoryShape(cat) {
   };
 }
 
+function adjustAreaShape(area) {
+  return {
+    name: area.strArea,
+  };
+}
+
+function adjustIngredientShape(ing) {
+  return {
+    id: ing.idIngredient,
+    name: ing.strIngredient,
+    description: ing.strDescription,
+  };
+}
+
+// public api
+
 export function getMealOfTheDay() {
   if (
     ls.motd &&
@@ -88,10 +108,26 @@ export function fetchMeal(id) {
   return request(url.LOOKUP_ID(id)).then((data) => adjustShape(data.meals[0]));
 }
 
-export function fetchCategories() {
-  return request(url.CATEGORIES).then((data) =>
-    data.categories.map(adjustCategoryShape)
-  );
+// export function fetchCategories() {
+//   return request(url.CATEGORIES).then((data) =>
+//     data.categories.map(adjustCategoryShape)
+//   );
+// }
+
+export function fetchSelectionOptions(type) {
+  switch (type) {
+    case "categories":
+      return request(url.CATEGORIES).then((data) =>
+        data.categories.map(adjustCategoryShape)
+      );
+    case "areas":
+      return request(url.AREAS).then((data) => data.meals.map(adjustAreaShape));
+
+    case "ingredients":
+      return request(url.INGREDIENTS).then((data) =>
+        data.meals.map(adjustIngredientShape)
+      );
+  }
 }
 
 export function selectMeals(type, term) {

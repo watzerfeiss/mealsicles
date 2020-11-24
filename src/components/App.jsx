@@ -32,12 +32,16 @@ export default function App() {
       );
       break;
     case "favourites":
+      break;
     case "categories":
+      mainView = (
+        <CategoriesView
+          {...{ dispatch, selectionTypes: state.selectionTypes }}
+        />
+      );
+      break;
     case "areas":
     case "ingredients":
-      mainView = (
-        <CategoriesView {...{ dispatch, categories: state.categories }} />
-      );
       break;
     case "home":
     default:

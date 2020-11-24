@@ -14,10 +14,16 @@ function asyncAction(initAction, asyncFunction, ...args) {
     dispatch({ ...initAction, type: `${initAction.type}/start` });
     asyncFunction(...args)
       .then((data) => {
-        dispatch({ type: `${initAction.type}/success`, payload: data });
+        dispatch({
+          type: `${initAction.type}/success`,
+          payload: { ...initAction.payload, data },
+        });
       })
       .catch((err) => {
-        dispatch({ type: `${initAction.type}/failure`, payload: err });
+        dispatch({
+          type: `${initAction.type}/failure`,
+          payload: { ...initAction.payload, err },
+        });
       });
   };
 }
@@ -27,20 +33,28 @@ export function setDisplayedMeal(id) {
 }
 
 export function search(term) {
-  return asyncAction({ type: "search", payload: term }, api.search, term);
+  return asyncAction({ type: "search", payload: { term } }, api.search, term);
 }
 
 export function setMealOfTheDay() {
   return asyncAction({ type: "set-motd" }, api.getMealOfTheDay);
 }
 
-export function loadCategories() {
-  return asyncAction({ type: "load-categories" }, api.fetchCategories);
+// export function loadCategories() {
+//   return asyncAction({ type: "load-categories" }, api.fetchCategories);
+// }
+
+export function loadSelectionOptions(optionsType) {
+  return asyncAction(
+    { type: "load-selection-options", payload: { optionsType } },
+    api.fetchSelectionOptions,
+    optionsType
+  );
 }
 
 export function selectMeals(selectionType, selectionTerm) {
   return asyncAction(
-    { type: "select-meals", selectionType, selectionTerm },
+    { type: "select-meals", payload: { selectionType, selectionTerm } },
     api.selectMeals,
     selectionType,
     selectionTerm
