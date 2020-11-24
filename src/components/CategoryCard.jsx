@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { selectMeals } from "../actions";
+import { selectMeals } from "../store/actions";
 import * as shapes from "../shapes";
 
 export default function CategoryCard({

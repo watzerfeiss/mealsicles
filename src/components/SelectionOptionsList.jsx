@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 
 import CategoryCard from "./CategoryCard";
 
-import { loadSelectionOptions, setView } from "../actions";
+import { loadSelectionOptions, setView } from "../store/actions";
 import * as shapes from "../shapes";
-import { selectMeals } from "../actions";
+import { selectMeals } from "../store/actions";
 
 export default function SelectionOptionsList({
   dispatch,

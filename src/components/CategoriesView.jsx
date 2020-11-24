@@ -5,7 +5,7 @@ import SelectionOptionsList from "./SelectionOptionsList";
 
 import * as shapes from "../shapes";
 
-export function CategoriesView({ dispatch, selectionTypes }) {
+export default function CategoriesView({ dispatch, selectionTypes }) {
   return (
     <SelectionOptionsList {...{ dispatch, selectionTypes }} type="categories" />
   );

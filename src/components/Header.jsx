@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { setView } from "../actions";
+import { setView } from "../store/actions";
 import SearchForm from "./SearchForm";
 
 function Header({ dispatch }) {

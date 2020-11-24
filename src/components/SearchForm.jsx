@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import { search } from "../actions";
+import { search } from "../store/actions";
 
 export default function SearchForm({ dispatch }) {
   const [searchText, setSearchText] = useState("");

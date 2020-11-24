@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { setDisplayedMeal } from "../actions";
+import { setDisplayedMeal } from "../store/actions";
 import * as shapes from "../shapes";
 
 export default function MealCard({ dispatch, meal }) {

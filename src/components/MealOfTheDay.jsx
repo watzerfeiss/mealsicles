@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
-import { setDisplayedMeal, setMealOfTheDay } from "../actions";
+import { setDisplayedMeal, setMealOfTheDay } from "../store/actions";
 import * as shapes from "../shapes";
 
 export default function MealOfTheDay({ dispatch, meal }) {

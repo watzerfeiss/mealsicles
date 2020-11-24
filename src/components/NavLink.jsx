@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { setView } from "../actions";
+import { setView } from "../store/actions";
 
 export default function NavLink({ dispatch, view, currentView, text }) {
   return (

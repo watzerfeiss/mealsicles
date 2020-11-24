@@ -5,11 +5,11 @@ import MainNav from "./MainNav";
 import MealOfTheDay from "./MealOfTheDay";
 import MealDetails from "./MealDetails";
 
-import rootReducer from "../reducers";
-import withThunks from "../dispatch-with-thunks";
+import rootReducer from "../store/reducers";
+import withThunks from "../store/dispatch-with-thunks";
 import SearchView from "./SearchView";
 import HomePage from "./HomePage";
-import { CategoriesView } from "./CategoriesView";
+import CategoriesView from "./CategoriesView";
 import MealSelectionView from "./MealSelectionView";
 import SelectionOptionsList from "./SelectionOptionsList";
 
