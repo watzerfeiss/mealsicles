@@ -13,5 +13,7 @@ export default function CategoriesView({ dispatch, selectionTypes }) {
 
 CategoriesView.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  categories: PropTypes.arrayOf(shapes.category),
+  selectionTypes: PropTypes.shape({
+    categories: PropTypes.arrayOf(shapes.category),
+  }),
 };

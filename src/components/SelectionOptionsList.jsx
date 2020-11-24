@@ -85,6 +85,7 @@ export default function SelectionOptionsList({
 
 SelectionOptionsList.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
   selectionTypes: PropTypes.shape({
     categories: PropTypes.arrayOf(shapes.category),
     areas: PropTypes.arrayOf(PropTypes.any),

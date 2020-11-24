@@ -47,6 +47,10 @@ HomePage.propTypes = {
   dispatch: PropTypes.func.isRequired,
   state: PropTypes.shape({
     mealOfTheDay: shapes.meal,
-    categories: PropTypes.arrayOf(shapes.category),
+    selectionTypes: PropTypes.shape({
+      categories: PropTypes.arrayOf(shapes.category),
+      areas: PropTypes.arrayOf(PropTypes.any),
+      ingredients: PropTypes.arrayOf(PropTypes.any),
+    }),
   }),
 };

@@ -18,7 +18,7 @@ const url = {
 };
 
 const ls = localStorage;
-const ss = sessionStorage;
+// const ss = sessionStorage;
 const motdLifetime = 24 * 3600 * 1000;
 
 // helper functions
