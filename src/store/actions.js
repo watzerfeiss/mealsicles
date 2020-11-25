@@ -40,10 +40,6 @@ export function setMealOfTheDay() {
   return asyncAction({ type: "set-motd" }, api.getMealOfTheDay);
 }
 
-// export function loadCategories() {
-//   return asyncAction({ type: "load-categories" }, api.fetchCategories);
-// }
-
 export function loadSelectionOptions(optionsType) {
   return asyncAction(
     { type: "load-selection-options", payload: { optionsType } },

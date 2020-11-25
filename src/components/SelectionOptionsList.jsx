@@ -71,7 +71,7 @@ export default function SelectionOptionsList({
           href=""
           onClick={(e) => {
             e.preventDefault();
-            dispatch(setView("categories"));
+            dispatch(setView(type));
           }}
         >
           See all {type}
