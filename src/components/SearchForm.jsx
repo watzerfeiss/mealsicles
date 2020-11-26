@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { search } from "../store/actions";
+import { useHistory } from "react-router-dom";
 
 export default function SearchForm({ dispatch }) {
+  const hist = useHistory();
   const [searchText, setSearchText] = useState("");
   return (
     <form
       className="search-form"
       onSubmit={(e) => {
         e.preventDefault();
+        hist.push("/search");
         dispatch(search(searchText));
       }}
     >

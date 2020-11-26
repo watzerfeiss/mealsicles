@@ -6,6 +6,7 @@ import CategoryCard from "./CategoryCard";
 import { loadSelectionOptions, setView } from "../store/actions";
 import * as shapes from "../shapes";
 import { selectMeals } from "../store/actions";
+import { Link } from "react-router-dom";
 
 export default function SelectionOptionsList({
   dispatch,
@@ -18,9 +19,9 @@ export default function SelectionOptionsList({
     if (!selectionTypes || !selectionTypes[type]) {
       dispatch(loadSelectionOptions(type));
     }
-  }, [selectionTypes]);
+  }, [selectionTypes, type]);
 
-  const options = selectionTypes && selectionTypes[type];
+  const options = selectionTypes ? selectionTypes[type] : null;
   const numItemsToShow = isPreview ? numItems : options?.length;
 
   //todo shuffle
@@ -35,29 +36,11 @@ export default function SelectionOptionsList({
                 item = <CategoryCard {...{ dispatch, category: option }} />;
                 break;
               case "areas":
-                item = (
-                  <a
-                    href=""
-                    onClick={(e) => {
-                      e.preventDefault();
-                      dispatch(selectMeals("area", option.name));
-                    }}
-                  >
-                    {option.name}
-                  </a>
-                );
+                item = <Link to={`/area/${option.name}`}>{option.name}</Link>;
                 break;
               case "ingredients":
                 item = (
-                  <a
-                    href=""
-                    onClick={(e) => {
-                      e.preventDefault();
-                      dispatch(selectMeals("ingredient", option.name));
-                    }}
-                  >
-                    {option.name}
-                  </a>
+                  <Link to={`/ingredient/${option.name}`}>{option.name}</Link>
                 );
                 break;
             }
@@ -66,17 +49,7 @@ export default function SelectionOptionsList({
           })}
         </ul>
       )}
-      {isPreview && (
-        <a
-          href=""
-          onClick={(e) => {
-            e.preventDefault();
-            dispatch(setView(type));
-          }}
-        >
-          See all {type}
-        </a>
-      )}
+      {isPreview && <Link to={type}>See all {type}</Link>}
     </div>
   );
 }
@@ -87,9 +60,9 @@ SelectionOptionsList.propTypes = {
   dispatch: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
   selectionTypes: PropTypes.shape({
-    categories: PropTypes.arrayOf(shapes.category),
-    areas: PropTypes.arrayOf(PropTypes.any),
-    ingredients: PropTypes.arrayOf(PropTypes.any),
+    categories: PropTypes.array,
+    areas: PropTypes.array,
+    ingredients: PropTypes.array,
   }),
   numItems: PropTypes.number,
   isPreview: PropTypes.bool,

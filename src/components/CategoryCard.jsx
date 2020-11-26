@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import { selectMeals } from "../store/actions";
 import * as shapes from "../shapes";
+import { Link } from "react-router-dom";
 
 export default function CategoryCard({
   dispatch,
@@ -13,15 +14,7 @@ export default function CategoryCard({
       <h2>{name}</h2>
       <img src={image} alt={name} />
       <p>{description}</p>
-      <a
-        href=""
-        onClick={(e) => {
-          e.preventDefault();
-          dispatch(selectMeals("category", name));
-        }}
-      >
-        See meals in this category
-      </a>
+      <Link to={`category/${name}`}>See meals in this category</Link>
     </article>
   );
 }

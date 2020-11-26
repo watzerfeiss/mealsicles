@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import { useParams } from "react-router-dom";
 
 import * as shapes from "../shapes";
+import { setDisplayedMeal } from "../store/actions";
 
-export default function MealDetails({ meal }) {
-  return meal ? (
+export default function MealDetails({ dispatch, meal }) {
+  const { mealId } = useParams();
+  useEffect(() => {
+    if (!meal || meal.id !== mealId) {
+      dispatch(setDisplayedMeal(mealId));
+    }
+  }, [mealId]);
+
+  return meal && mealId === meal.id ? (
     <article className="meal-details">
       <h2 className="meal-details__title">{meal.name}</h2>
       <img src={meal.image} alt={meal.name} className="meal-details__image" />
@@ -31,5 +41,6 @@ export default function MealDetails({ meal }) {
 }
 
 MealDetails.propTypes = {
+  dispatch: PropTypes.func.isRequired,
   meal: shapes.meal,
 };

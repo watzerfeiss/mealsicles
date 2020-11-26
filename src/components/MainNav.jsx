@@ -1,43 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import NavLink from "./NavLink";
+import { NavLink } from "react-router-dom";
 
 export default function MainNav({ dispatch, currentView }) {
   return (
     <nav className="app-nav">
       <ul>
         <li className="app-nav__item">
-          <NavLink
-            dispatch={dispatch}
-            currentView={currentView}
-            view="favourites"
-            text="Favourites"
-          />
+          <NavLink to="/favourites" activeClassName="current-view">
+            Favourites
+          </NavLink>
         </li>
         <li className="app-nav__item">
-          <NavLink
-            dispatch={dispatch}
-            currentView={currentView}
-            view="categories"
-            text="Categories"
-          />
+          <NavLink to="/categories" activeClassName="current-view">
+            Categories
+          </NavLink>
         </li>
         <li className="app-nav__item">
-          <NavLink
-            dispatch={dispatch}
-            currentView={currentView}
-            view="areas"
-            text="Areas"
-          />
+          <NavLink to="/areas" activeClassName="current-view">
+            Areas
+          </NavLink>
         </li>
         <li className="app-nav__item">
-          <NavLink
-            dispatch={dispatch}
-            currentView={currentView}
-            view="ingredients"
-            text="Ingredients"
-          />
+          <NavLink to="/ingredients" activeClassName="current-view">
+            Ingredients
+          </NavLink>
         </li>
       </ul>
     </nav>

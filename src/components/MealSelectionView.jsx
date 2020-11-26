@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import PropTypes from "prop-types";
-
-import MealCard from "./MealCard";
+import { useParams } from "react-router-dom";
 
 import * as shapes from "../shapes";
+import { selectMeals } from "../store/actions";
+import MealList from "./MealList";
 
 const headings = {
   category: (count, name) =>
@@ -13,22 +14,22 @@ const headings = {
     `${count} meal${count > 1 ? "s" : ""} made with ${name}`,
 };
 
-export default function MealSelectionView({
-  dispatch,
-  selection: { type, term, results },
-}) {
+export default function MealSelectionView({ dispatch, selection }) {
+  const { selectionType: type, selectionTerm: term } = useParams();
+  useLayoutEffect(() => {
+    if (!selection || selection.type !== type || selection.term !== term) {
+      dispatch(selectMeals(type, term));
+    }
+  }, [type, term, selection]);
+
   return (
     <div className="meal-selection">
-      {results && (
+      {selection?.results && (
         <>
-          <h2>{headings[type](results.length, term)}</h2>
-          <ul>
-            {results.map((meal) => (
-              <li key={meal.id}>
-                <MealCard {...{ dispatch, meal }} />
-              </li>
-            ))}
-          </ul>
+          <h2>
+            {headings[selection.type](selection.results.length, selection.term)}
+          </h2>
+          <MealList {...{ dispatch, meals: selection.results }} />
         </>
       )}
     </div>

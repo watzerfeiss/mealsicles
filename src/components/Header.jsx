@@ -3,20 +3,13 @@ import PropTypes from "prop-types";
 
 import { setView } from "../store/actions";
 import SearchForm from "./SearchForm";
+import { Link } from "react-router-dom";
 
 function Header({ dispatch }) {
   return (
     <header className="app-header">
       <h1>
-        <a
-          href="home"
-          onClick={(e) => {
-            e.preventDefault();
-            dispatch(setView("home"));
-          }}
-        >
-          Mealsicles
-        </a>
+        <Link to="/">Mealsicles</Link>
       </h1>
       <SearchForm {...{ dispatch }} />
     </header>
