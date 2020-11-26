@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import MealList from "./MealList";
-
 import * as shapes from "../shapes";
+
+import MealList from "./MealList";
 
 export default function SearchView({ dispatch, searchState }) {
   return (

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import * as shapes from "../shapes";
 import { selectMeals } from "../store/actions";
+
 import MealList from "./MealList";
 
 const headings = {

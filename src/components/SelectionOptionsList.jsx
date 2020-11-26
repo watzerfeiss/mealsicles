@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+
+import { loadSelectionOptions } from "../store/actions";
+import * as shapes from "../shapes";
 
 import CategoryCard from "./CategoryCard";
-
-import { loadSelectionOptions, setView } from "../store/actions";
-import * as shapes from "../shapes";
-import { selectMeals } from "../store/actions";
-import { Link } from "react-router-dom";
 
 export default function SelectionOptionsList({
   dispatch,
@@ -60,9 +59,9 @@ SelectionOptionsList.propTypes = {
   dispatch: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
   selectionTypes: PropTypes.shape({
-    categories: PropTypes.array,
-    areas: PropTypes.array,
-    ingredients: PropTypes.array,
+    categories: PropTypes.arrayOf(shapes.category),
+    areas: PropTypes.arrayOf(PropTypes.string),
+    ingredients: PropTypes.arrayOf(PropTypes.string),
   }),
   numItems: PropTypes.number,
   isPreview: PropTypes.bool,

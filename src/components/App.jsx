@@ -65,7 +65,7 @@ export default function App() {
   return (
     <div className="app-container">
       <Header {...{ dispatch }} />
-      <MainNav {...{ dispatch }} />
+      <MainNav />
       <Switch>
         <Route path="/meal-details/:mealId">
           <MealDetails {...{ dispatch, meal: state.displayedMeal }} />

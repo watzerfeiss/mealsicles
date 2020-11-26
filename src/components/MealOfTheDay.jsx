@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
-import { setDisplayedMeal, setMealOfTheDay } from "../store/actions";
+import { setMealOfTheDay } from "../store/actions";
 import * as shapes from "../shapes";
 import { Link } from "react-router-dom";
 
@@ -20,3 +20,8 @@ export default function MealOfTheDay({ dispatch, meal }) {
     </article>
   ) : null;
 }
+
+MealOfTheDay.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  meal: shapes.meal,
+};

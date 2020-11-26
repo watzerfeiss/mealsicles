@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import * as shapes from "../shapes";
+
 import MealOfTheDay from "./MealOfTheDay";
 import SearchForm from "./SearchForm";
-
-import * as shapes from "../shapes";
 import SelectionOptionsList from "./SelectionOptionsList";
 
 export default function HomePage({

@@ -1,12 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import { selectMeals } from "../store/actions";
-import * as shapes from "../shapes";
 import { Link } from "react-router-dom";
 
+import * as shapes from "../shapes";
+
 export default function CategoryCard({
-  dispatch,
   category: { id, name, image, description },
 }) {
   return (

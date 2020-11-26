@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import { setView } from "../store/actions";
-import SearchForm from "./SearchForm";
 import { Link } from "react-router-dom";
+
+import SearchForm from "./SearchForm";
 
 function Header({ dispatch }) {
   return (

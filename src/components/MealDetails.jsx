@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 
 import * as shapes from "../shapes";
+
 import { setDisplayedMeal } from "../store/actions";
 
 export default function MealDetails({ dispatch, meal }) {

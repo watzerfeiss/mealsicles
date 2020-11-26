@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import MealCard from "./MealCard";
-
 import * as shapes from "../shapes";
+
+import MealCard from "./MealCard";
 
 export default function MealList({ dispatch, meals }) {
   return (
