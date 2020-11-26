@@ -60,8 +60,18 @@ SelectionOptionsList.propTypes = {
   type: PropTypes.string.isRequired,
   selectionTypes: PropTypes.shape({
     categories: PropTypes.arrayOf(shapes.category),
-    areas: PropTypes.arrayOf(PropTypes.string),
-    ingredients: PropTypes.arrayOf(PropTypes.string),
+    areas: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        name: PropTypes.string,
+      })
+    ),
+    ingredients: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        name: PropTypes.string,
+      })
+    ),
   }),
   numItems: PropTypes.number,
   isPreview: PropTypes.bool,

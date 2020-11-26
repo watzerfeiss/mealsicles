@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
 
 import { search } from "../store/actions";
-import { useHistory } from "react-router-dom";
 
 export default function SearchForm({ dispatch }) {
   const hist = useHistory();
