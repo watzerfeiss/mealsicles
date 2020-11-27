@@ -4,9 +4,17 @@ import { useHistory } from "react-router-dom";
 
 import { search } from "../store/actions";
 
-export default function SearchForm({ dispatch }) {
+export default function SearchForm({
+  dispatch,
+  compact = false,
+  searching = false,
+  setSearching,
+}) {
   const hist = useHistory();
   const [searchText, setSearchText] = useState("");
+
+  const isOpen = !compact || searching;
+
   return (
     <form
       className="search-form"
@@ -16,12 +24,31 @@ export default function SearchForm({ dispatch }) {
         dispatch(search(searchText));
       }}
     >
-      <input
-        type="search"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-      />
-      <input type="submit" value="Search" />
+      {isOpen && (
+        <input
+          type="search"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+      )}
+      {isOpen ? (
+        <>
+          <input type="submit" value="Search" />
+          {compact && (
+            <button
+              type="button"
+              onClick={() => setSearching(false)}
+              value="Cancel"
+            >
+              x
+            </button>
+          )}
+        </>
+      ) : (
+        <button type="button" onClick={() => setSearching(true)} value="Search">
+          p
+        </button>
+      )}
     </form>
   );
 }

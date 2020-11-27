@@ -8,6 +8,13 @@ body {
   font-family: "Segoe UI", Verdana, sans-serif;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+}
+
 .app-container {
   max-width: 1000px;
   min-height: 100vh;
@@ -17,12 +24,14 @@ body {
 }
 
 .app-header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-auto-flow: column;
   align-items: center;
 
-  background-color: orange;
+  height: 50px;
   padding: 10px;
+
+  background-color: orange;
 }
 
 .app-header h1 {
@@ -36,6 +45,10 @@ body {
 
 .app-header h1 a:hover {
   color: white;
+}
+
+.app-header .search-form {
+  justify-self: right;
 }
 
 .motd {
