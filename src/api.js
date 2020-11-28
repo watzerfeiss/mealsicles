@@ -15,6 +15,12 @@ const url = {
     ingredient: (term) =>
       `https://www.themealdb.com/api/json/v1/1/filter.php?i=${term}`,
   },
+  INGREDIENT_IMAGE: (name) => {
+    `https://www.themealdb.com/images/ingredients/${name}.png`;
+  },
+  INGREDIENT_THUMB: (name) => {
+    `https://www.themealdb.com/images/ingredients/${name}-Small.png`;
+  },
 };
 
 const ls = localStorage;
@@ -76,6 +82,8 @@ function adjustIngredientShape(ing) {
     id: ing.idIngredient,
     name: ing.strIngredient,
     description: ing.strDescription,
+    image: url.INGREDIENT_IMAGE(ing.strIngredient),
+    thumbnail: url.INGREDIENT_THUMB(ing.strIngredient),
   };
 }
 
