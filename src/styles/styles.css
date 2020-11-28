@@ -1,5 +1,6 @@
 @import "./global/global.css";
 @import "./header/header.css";
+@import "./search-form/search-form.css";
 @import "./nav/nav.css";
 @import "./homepage/homepage.css";
 @import "./meal-details/meal-details.css";

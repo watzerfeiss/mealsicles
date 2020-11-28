@@ -15,6 +15,18 @@ body {
   clip: rect(0, 0, 0, 0);
 }
 
+.btn {
+  position: relative;
+  border: 2px solid transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn:active {
+  top: 2px;
+  left: 1px;
+}
+
 .app-container {
   max-width: 1000px;
   min-height: 100vh;
