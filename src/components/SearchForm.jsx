@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 
@@ -15,11 +15,21 @@ export default function SearchForm({
 
   const isOpen = !compact || searching;
 
+  const searchField = useRef(null);
+  useLayoutEffect(() => {
+    if (isOpen) {
+      searchField.current.focus();
+    }
+  }, [isOpen]);
+
   return (
     <form
       className="search-form"
       onSubmit={(e) => {
         e.preventDefault();
+        if (searchText === "") {
+          return;
+        }
         hist.push("/search");
         dispatch(search(searchText));
       }}
@@ -27,6 +37,7 @@ export default function SearchForm({
       {isOpen && (
         <input
           type="search"
+          ref={searchField}
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />

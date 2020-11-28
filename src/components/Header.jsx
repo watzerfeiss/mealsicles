@@ -10,7 +10,9 @@ function Header({ dispatch }) {
   const [searching, setSearching] = useState(false);
 
   return (
-    <header className="app-header">
+    <header
+      className={`app-header${searching ? " app-header--searching" : ""}`}
+    >
       <h1
         className={`app-header__heading${
           narrowScreen && searching ? " visually-hidden" : ""

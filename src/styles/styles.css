@@ -26,6 +26,7 @@ body {
 
 .app-header {
   display: grid;
+  grid-template-columns: 1fr;
   grid-auto-flow: column;
   align-items: center;
 
@@ -36,6 +37,7 @@ body {
 }
 
 .app-header h1 {
+  grid-template-columns: auto;
   margin: 0;
 }
 
@@ -49,7 +51,10 @@ body {
 }
 
 .app-header .search-form {
-  justify-self: right;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-columns: auto;
+  grid-auto-flow: column;
 }
 
 .app-nav {
