@@ -66,31 +66,33 @@ export default function App() {
     <div className="app-container">
       <Header {...{ dispatch }} />
       <MainNav />
-      <Switch>
-        <Route path="/meal-details/:mealId">
-          <MealDetails {...{ dispatch, meal: state.displayedMeal }} />
-        </Route>
+      <main className="main-content">
+        <Switch>
+          <Route path="/meal-details/:mealId">
+            <MealDetails {...{ dispatch, meal: state.displayedMeal }} />
+          </Route>
 
-        <Route path="/search">
-          <SearchView {...{ dispatch, searchState: state.search }} />
-        </Route>
+          <Route path="/search">
+            <SearchView {...{ dispatch, searchState: state.search }} />
+          </Route>
 
-        <Route path="/favourites" />
+          <Route path="/favourites" />
 
-        <Route path="/:selectionType/:selectionTerm">
-          <MealSelectionView {...{ dispatch, selection: state.selection }} />
-        </Route>
+          <Route path="/:selectionType/:selectionTerm">
+            <MealSelectionView {...{ dispatch, selection: state.selection }} />
+          </Route>
 
-        <Route path="/:selectionType">
-          <SelectionOptionsView
-            {...{ dispatch, selectionTypes: state.selectionTypes }}
-          />
-        </Route>
+          <Route path="/:selectionType">
+            <SelectionOptionsView
+              {...{ dispatch, selectionTypes: state.selectionTypes }}
+            />
+          </Route>
 
-        <Route path="/">
-          <HomePage {...{ dispatch, state }} />
-        </Route>
-      </Switch>
+          <Route path="/">
+            <HomePage {...{ dispatch, state }} />
+          </Route>
+        </Switch>
+      </main>
     </div>
   );
 }

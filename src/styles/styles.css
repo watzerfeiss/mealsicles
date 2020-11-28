@@ -19,8 +19,9 @@ body {
   max-width: 1000px;
   min-height: 100vh;
   margin: 0 auto;
-  background: white;
-  /* box-shadow: 0 0 20px -5px lightgrey; */
+
+  background: #f7f7f7;
+  box-shadow: 0 0 20px -5px lightgrey;
 }
 
 .app-header {
@@ -49,6 +50,14 @@ body {
 
 .app-header .search-form {
   justify-self: right;
+}
+
+.app-nav {
+  background: white;
+}
+
+.main-content {
+  padding: 5px 10px;
 }
 
 .motd {
@@ -158,7 +167,32 @@ tr:nth-child(even) {
   grid-area: ingr;
   display: grid;
 }
-/* 
-.meal-ingredients td:first-child {
-  text-align: right;
-} */
+
+/* meal card list */
+
+.meal-list {
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-gap: 15px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.meal-card {
+  padding: 5px;
+
+  background: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px -1px lightgrey;
+}
+
+.meal-card__image {
+  width: 100%;
+  height: auto;
+
+  border-radius: 5px;
+}
