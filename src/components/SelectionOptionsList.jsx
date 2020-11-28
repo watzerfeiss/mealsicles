@@ -27,7 +27,7 @@ export default function SelectionOptionsList({
   return (
     <div className={`${type}${isPreview ? ` ${type}--preview` : ""}`}>
       {options && (
-        <ul className={"category-list"}>
+        <ul className={`${type}-list`}>
           {options.slice(0, numItemsToShow).map((option) => {
             let item = null;
             switch (type) {

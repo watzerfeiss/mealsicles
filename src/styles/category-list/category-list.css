@@ -1,0 +1,12 @@
+@import "./category-card.css";
+
+.categories-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}

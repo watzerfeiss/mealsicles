@@ -1,0 +1,16 @@
+.category-card {
+  padding: 8px;
+
+  background: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px -1px lightgrey;
+}
+
+.category-card__image {
+  width: 100%;
+  height: auto;
+}
+
+.category-card--expanded {
+  grid-column: 1 / -1;
+}
