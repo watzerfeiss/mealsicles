@@ -17,10 +17,10 @@ export default function SearchForm({
 
   const searchField = useRef(null);
   useLayoutEffect(() => {
-    if (isOpen) {
+    if (searching) {
       searchField.current.focus();
     }
-  }, [isOpen]);
+  }, [searching]);
 
   return (
     <form
@@ -32,6 +32,8 @@ export default function SearchForm({
         }
         hist.push("/search");
         dispatch(search(searchText));
+        searchField.current.blur();
+        setSearching(false);
       }}
     >
       {isOpen && (
