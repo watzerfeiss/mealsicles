@@ -1,0 +1,23 @@
+.motd {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 200px auto;
+  grid-gap: 20px;
+
+  padding: 20px;
+
+  background-color: antiquewhite;
+  border-radius: 10px;
+  box-shadow: 2px 1px 10px -2px lightgray;
+}
+
+.motd__title {
+  grid-column: 1 / span 2;
+  margin: 0;
+}
+
+.motd__thumb {
+  grid-row: 2 / 5;
+  width: 100%;
+  height: auto;
+}

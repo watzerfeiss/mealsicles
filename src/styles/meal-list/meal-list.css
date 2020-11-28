@@ -1,0 +1,17 @@
+@import "./meal-card.css";
+
+.meal-list {
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-gap: 15px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.meal-list li {
+  display: grid;
+}

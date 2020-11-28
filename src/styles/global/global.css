@@ -1,0 +1,33 @@
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  background-color: whitesmoke;
+  font-family: "Segoe UI", Verdana, sans-serif;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+}
+
+.app-container {
+  max-width: 1000px;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  background: #f7f7f7;
+  box-shadow: 0 0 20px -5px lightgrey;
+}
+
+.main-content {
+  padding: 5px 10px;
+}
+
+tr:nth-child(even) {
+  background-color: whitesmoke;
+}

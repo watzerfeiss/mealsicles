@@ -1,0 +1,21 @@
+.meal-card {
+  display: grid;
+  grid-template-rows: 1fr;
+
+  padding: 8px;
+
+  background: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px -1px lightgrey;
+}
+
+.meal-card__title {
+  margin: 0 0 10px 0;
+}
+
+.meal-card__image {
+  width: 100%;
+  height: auto;
+
+  border-radius: 5px;
+}

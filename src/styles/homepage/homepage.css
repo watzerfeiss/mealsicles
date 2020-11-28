@@ -1,0 +1,9 @@
+@import "./motd.css";
+
+.homepage-section {
+  display: grid;
+  place-items: center;
+
+  padding: 20px 0;
+  border-bottom: 1px solid whitesmoke;
+}

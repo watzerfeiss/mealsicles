@@ -1,0 +1,36 @@
+.app-nav {
+  background: white;
+}
+
+.app-nav ul {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  grid-gap: 10px;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  box-shadow: 0 -2px 0 0 inset orange;
+}
+
+.app-nav__item {
+  display: grid;
+}
+
+.app-nav__item a {
+  display: block;
+  padding: 10px;
+
+  color: navy;
+  font-weight: 700;
+  text-decoration: none;
+
+  border-bottom: 2px solid orange;
+}
+
+.app-nav__item a.current-view {
+  background-color: #f0f0ff;
+  border-bottom-color: navy;
+}
