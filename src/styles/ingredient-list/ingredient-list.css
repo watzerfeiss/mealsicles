@@ -1,0 +1,18 @@
+.ingredients-list {
+  display: flex;
+  flex-flow: row wrap;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.ingredients-list li {
+  flex: 1 1 auto;
+  margin: 5px;
+}
+
+.ingr-link {
+  display: grid;
+}

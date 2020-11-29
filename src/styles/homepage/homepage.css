@@ -6,7 +6,7 @@
   grid-gap: 10px;
 
   padding: 20px 0;
-  border-bottom: 1px solid lightgrey;
+  box-shadow: 0 3px 10px -5px lightgray;
 }
 
 .homepage-section .heading,
@@ -18,14 +18,14 @@
   font-style: italic;
 }
 
-.homepage-section .search-form {
+/* .homepage-section .search-form {
   font-size: 1.2rem;
 }
 
 .homepage-section .search-form__btn {
   width: 50px;
   height: 50px;
-}
+} */
 
 .homepage-section .categories {
   justify-self: stretch;

@@ -43,7 +43,12 @@ export default function SelectionOptionsList({
                 break;
               case "ingredients":
                 item = (
-                  <Link to={`/ingredient/${option.name}`}>{option.name}</Link>
+                  <Link
+                    to={`/ingredient/${option.name}`}
+                    className="page-link ingr-link"
+                  >
+                    {option.name}
+                  </Link>
                 );
                 break;
             }
