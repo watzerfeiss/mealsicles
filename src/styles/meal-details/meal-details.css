@@ -8,8 +8,6 @@
     "ingr instr"
     "foot foot";
   grid-gap: 20px;
-
-  padding: 20px;
 }
 
 @media (max-width: 767px) {
@@ -27,7 +25,7 @@
 
 .meal-details__title {
   grid-area: title;
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .meal-details__image {
