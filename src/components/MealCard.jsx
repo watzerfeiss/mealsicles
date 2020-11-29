@@ -14,7 +14,9 @@ export default function MealCard({ meal }) {
         width="10"
         height="10"
       />
-      <Link to={`/meal-details/${meal.id}`}>Details</Link>
+      <Link to={`/meal-details/${meal.id}`} className="page-link">
+        Details
+      </Link>
     </article>
   );
 }

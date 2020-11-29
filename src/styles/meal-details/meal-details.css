@@ -12,6 +12,19 @@
   padding: 20px;
 }
 
+@media (max-width: 767px) {
+  .meal-details {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "image"
+      "tags"
+      "instr"
+      "ingr"
+      "foot";
+  }
+}
+
 .meal-details__title {
   grid-area: title;
   margin: 0;
@@ -33,4 +46,17 @@
 .meal-ingredients {
   grid-area: ingr;
   display: grid;
+}
+
+.meal-ingredients td {
+  width: 50%;
+  padding: 5px;
+}
+
+.meal-ingredients tr:nth-child(even) {
+  background-color: #ececec;
+}
+
+.meal-ingredients tr:nth-child(odd) {
+  background-color: #f1f1f1;
 }

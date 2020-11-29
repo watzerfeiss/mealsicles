@@ -3,7 +3,40 @@
 .homepage-section {
   display: grid;
   place-items: center;
+  grid-gap: 10px;
 
   padding: 20px 0;
-  border-bottom: 1px solid whitesmoke;
+  border-bottom: 1px solid lightgrey;
+}
+
+.homepage-section .heading,
+.homepage-section .subheading {
+  margin: 0;
+}
+
+.homepage-section .subheading {
+  font-style: italic;
+}
+
+.homepage-section .search-form {
+  font-size: 1.2rem;
+}
+
+.homepage-section .search-form__btn {
+  width: 50px;
+  height: 50px;
+}
+
+.homepage-section .categories {
+  justify-self: stretch;
+}
+
+.categories--preview,
+.areas--preview {
+  display: grid;
+  grid-gap: 10px;
+}
+
+.all-options-link {
+  place-self: center;
 }

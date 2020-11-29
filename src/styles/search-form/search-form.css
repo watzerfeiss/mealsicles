@@ -23,6 +23,7 @@
 
 .search-form__btn {
   display: grid;
+  place-items: center;
   padding: 4px;
 
   color: white;

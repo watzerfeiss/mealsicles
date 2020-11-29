@@ -22,7 +22,7 @@ export default function HomePage({
       </section>
 
       <section className="homepage-section">
-        <h2>Meal categories</h2>
+        <h2 className="heading">Meal categories</h2>
         <SelectionOptionsList
           {...{ dispatch, selectionTypes }}
           isPreview
@@ -31,11 +31,12 @@ export default function HomePage({
       </section>
 
       <section className="homepage-section">
-        <h2>Areas of origin</h2>
+        <h2 className="heading">Areas of origin</h2>
         <p className="subheading">Meals from around the world</p>
         <SelectionOptionsList
           {...{ dispatch, selectionTypes }}
           isPreview
+          numItems={5}
           type="areas"
         />
       </section>

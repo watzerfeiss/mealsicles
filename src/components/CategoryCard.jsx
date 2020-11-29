@@ -12,11 +12,11 @@ export default function CategoryCard({
   return (
     <article
       className={`category-card${expanded ? " category-card--expanded" : ""}`}
-      onClick={(e) => {
+      onClick={() => {
         setExpanded(!expanded);
       }}
     >
-      <h2>{name}</h2>
+      <h2 className="category-card__title">{name}</h2>
       <img
         className="category-card__image"
         src={image}
@@ -26,8 +26,10 @@ export default function CategoryCard({
       />
       {expanded && (
         <>
-          <p>{description}</p>
-          <Link to={`category/${name}`}>See meals in this category</Link>
+          <p className="category-card__description">{description}</p>
+          <Link to={`category/${name}`} className="page-link">
+            See meals in this category
+          </Link>
         </>
       )}
     </article>

@@ -16,7 +16,9 @@ export default function MealOfTheDay({ dispatch, meal }) {
       <img src={meal.thumbnail} alt={meal.name} className="motd__thumb" />
       <p className="motd_category">{meal.category}</p>
 
-      <Link to={`/meal-details/${meal.id}`}>Details</Link>
+      <Link to={`/meal-details/${meal.id}`} className="page-link motd__link">
+        Details
+      </Link>
     </article>
   ) : null;
 }

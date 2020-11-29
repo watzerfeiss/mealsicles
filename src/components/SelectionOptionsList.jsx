@@ -35,7 +35,11 @@ export default function SelectionOptionsList({
                 item = <CategoryCard {...{ dispatch, category: option }} />;
                 break;
               case "areas":
-                item = <Link to={`/area/${option.name}`}>{option.name}</Link>;
+                item = (
+                  <Link to={`/area/${option.name}`} className="area-link">
+                    {option.name}
+                  </Link>
+                );
                 break;
               case "ingredients":
                 item = (
@@ -48,7 +52,11 @@ export default function SelectionOptionsList({
           })}
         </ul>
       )}
-      {isPreview && <Link to={type}>See all {type}</Link>}
+      {isPreview && (
+        <Link to={type} className="page-link all-options-link">
+          See all {type}
+        </Link>
+      )}
     </div>
   );
 }

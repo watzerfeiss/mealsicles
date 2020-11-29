@@ -1,4 +1,8 @@
 .category-card {
+  position: relative;
+  display: grid;
+  grid-gap: 5px;
+
   padding: 8px;
 
   background: white;
@@ -6,11 +10,28 @@
   box-shadow: 2px 2px 6px -1px lightgrey;
 }
 
+.category-card__title {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+
+  margin: 0;
+  padding: 5px;
+
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.5) 80%,
+    transparent
+  );
+}
+
 .category-card__image {
   width: 100%;
   height: auto;
 }
 
-.category-card--expanded {
-  grid-column: 1 / -1;
+.category-card__description {
+  max-height: 200px;
+  overflow: hidden;
 }

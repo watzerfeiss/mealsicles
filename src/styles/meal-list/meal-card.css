@@ -1,6 +1,7 @@
 .meal-card {
   display: grid;
   grid-template-rows: 1fr;
+  grid-gap: 5px;
 
   padding: 8px;
 

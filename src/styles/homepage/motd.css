@@ -2,6 +2,7 @@
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 200px auto;
+  grid-template-rows: auto auto 1fr auto;
   grid-gap: 20px;
 
   padding: 20px;
@@ -20,4 +21,15 @@
   grid-row: 2 / 5;
   width: 100%;
   height: auto;
+  border-radius: 5px;
+}
+
+.motd__link {
+  grid-row: -2 / -1;
+}
+
+@media (max-width: 500px) {
+  .motd {
+    display: block;
+  }
 }
