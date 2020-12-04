@@ -1,14 +1,5 @@
 import * as api from "../api";
 
-export function setView(view) {
-  return {
-    type: "set-view",
-    payload: view,
-  };
-}
-
-// async actions
-
 function asyncAction(initAction, asyncFunction, ...args) {
   return (dispatch) => {
     dispatch({ ...initAction, type: `${initAction.type}/start` });
@@ -55,4 +46,16 @@ export function selectMeals(selectionType, selectionTerm) {
     selectionType,
     selectionTerm
   );
+}
+
+export function loadFavourites() {
+  return asyncAction({ type: "load-favourites" }, api.loadFavourites);
+}
+
+export function saveFavourite(id) {
+  return asyncAction({ type: "save-favourite" }, api.saveFavourite, id);
+}
+
+export function deleteFavourites(ids) {
+  return asyncAction({ type: "delete-favourites" }, api.deleteFavourites, ids);
 }

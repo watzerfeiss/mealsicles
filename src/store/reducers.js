@@ -89,6 +89,14 @@ export default function rootReducer(state, action) {
         },
       };
 
+    case "load-favourites/success":
+    case "save-favourite/success":
+    case "delete-favourites/success":
+      return {
+        ...state,
+        favourites: action.payload.data,
+      };
+
     default:
       return state;
   }

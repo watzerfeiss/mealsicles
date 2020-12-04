@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import * as shapes from "../shapes";
 
 import { setDisplayedMeal } from "../store/actions";
+import { saveFavourite } from "../store/actions";
 
 export default function MealDetails({ dispatch, meal }) {
   const { mealId } = useParams();
@@ -16,7 +17,17 @@ export default function MealDetails({ dispatch, meal }) {
 
   return meal && mealId === meal.id ? (
     <article className="meal-details">
-      <h2 className="meal-details__title">{meal.name}</h2>
+      <header className="meal-details-header">
+        <h2 className="meal-details__title">{meal.name}</h2>
+        <button
+          type="button"
+          onClick={() => {
+            dispatch(saveFavourite(meal.id));
+          }}
+        >
+          Add to favourites
+        </button>
+      </header>
       <img src={meal.image} alt={meal.name} className="meal-details__image" />
       <div className="meal-details__tags"></div>
       <div className="meal-ingredients">

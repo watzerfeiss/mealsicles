@@ -25,6 +25,7 @@ const url = {
 
 const ls = localStorage;
 // const ss = sessionStorage;
+
 const motdLifetime = 24 * 3600 * 1000;
 
 // helper functions
@@ -142,4 +143,21 @@ export function selectMeals(type, term) {
   return request(url.SELECT[type](term)).then((data) =>
     data.meals.map(adjustShape)
   );
+}
+
+export function loadFavourites() {
+  return Promise.resolve(JSON.parse(ls.favourites || "[]"));
+}
+
+export function saveFavourite(id) {
+  const faves = JSON.parse(ls.favourites || "[]");
+  faves.push(id);
+  ls.favourites = JSON.stringify(faves);
+  return Promise.resolve(faves);
+}
+
+export function deleteFavourites(ids) {
+  const faves = JSON.parse(ls.favourites || "[]");
+  ls.favourites = JSON.stringify(faves.filter((fave) => !(fave in ids)));
+  return Promise.resolve(faves);
 }

@@ -7,6 +7,7 @@ import useAsyncStore from "../hooks/use-async-store";
 import Header from "./Header";
 import MainNav from "./MainNav";
 import HomePage from "./HomePage";
+import FavouritesView from "./FavouritesView";
 import SearchView from "./SearchView";
 import MealSelectionView from "./MealSelectionView";
 import SelectionOptionsView from "./SelectionOptionsView";
@@ -76,7 +77,9 @@ export default function App() {
             <SearchView {...{ dispatch, searchState: state.search }} />
           </Route>
 
-          <Route path="/favourites" />
+          <Route path="/favourites">
+            <FavouritesView {...{ dispatch }} />
+          </Route>
 
           <Route path="/:selectionType/:selectionTerm">
             <MealSelectionView {...{ dispatch, selection: state.selection }} />
