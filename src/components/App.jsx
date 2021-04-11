@@ -16,53 +16,6 @@ import MealDetails from "./MealDetails";
 export default function App() {
   const [state, dispatch] = useAsyncStore(rootReducer, {});
 
-  // let mainView = null;
-  // switch (state.currentView) {
-  //   case "meal-details":
-  //     mainView = state.displayedMeal && (
-  //       <MealDetails meal={state.displayedMeal} />
-  //     );
-  //     break;
-  //   case "search":
-  //     mainView = <SearchView {...{ dispatch, searchState: state.search }} />;
-  //     break;
-  //   case "selection":
-  //     mainView = (
-  //       <MealSelectionView {...{ dispatch, selection: state.selection }} />
-  //     );
-  //     break;
-  //   case "favourites":
-  //     break;
-  //   case "categories":
-  //     mainView = (
-  //       <CategoriesView
-  //         {...{ dispatch, selectionTypes: state.selectionTypes }}
-  //       />
-  //     );
-  //     break;
-  //   case "areas":
-  //     mainView = (
-  //       <SelectionOptionsList
-  //         {...{ dispatch, selectionTypes: state.selectionTypes, type: "areas" }}
-  //       />
-  //     );
-  //     break;
-  //   case "ingredients":
-  //     mainView = (
-  //       <SelectionOptionsList
-  //         {...{
-  //           dispatch,
-  //           selectionTypes: state.selectionTypes,
-  //           type: "ingredients",
-  //         }}
-  //       />
-  //     );
-  //     break;
-  //   case "home":
-  //   default:
-  //     mainView = <HomePage {...{ dispatch, state }} />;
-  // }
-
   return (
     <div className="app-container">
       <Header {...{ dispatch }} />
