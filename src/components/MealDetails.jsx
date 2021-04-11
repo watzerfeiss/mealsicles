@@ -22,7 +22,7 @@ export default function MealDetails({ dispatch, meal }) {
         <button
           type="button"
           onClick={() => {
-            dispatch(saveFavourite(meal.id));
+            dispatch(saveFavourite(meal));
           }}
         >
           Add to favourites

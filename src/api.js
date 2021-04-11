@@ -13,20 +13,20 @@ const url = {
     area: (term) =>
       `https://www.themealdb.com/api/json/v1/1/filter.php?a=${term}`,
     ingredient: (term) =>
-      `https://www.themealdb.com/api/json/v1/1/filter.php?i=${term}`,
+      `https://www.themealdb.com/api/json/v1/1/filter.php?i=${term}`
   },
   INGREDIENT_IMAGE: (name) => {
     `https://www.themealdb.com/images/ingredients/${name}.png`;
   },
   INGREDIENT_THUMB: (name) => {
     `https://www.themealdb.com/images/ingredients/${name}-Small.png`;
-  },
+  }
 };
 
 const ls = localStorage;
 // const ss = sessionStorage;
 
-const motdLifetime = 24 * 3600 * 1000;
+const MOTD_LIFETIME = 24 * 3600 * 1000;
 
 // helper functions
 
@@ -47,7 +47,7 @@ function adjustShape(meal) {
       return {
         index,
         ingredient: meal[key],
-        measure: meal["strMeasure" + index],
+        measure: meal["strMeasure" + index]
       };
     });
 
@@ -59,7 +59,7 @@ function adjustShape(meal) {
     image: meal.strMealThumb,
     thumbnail: meal.strMealThumb + "/preview",
     video: meal.strYoutube,
-    ingredients,
+    ingredients
   };
 }
 
@@ -68,13 +68,13 @@ function adjustCategoryShape(cat) {
     id: cat.idCategory,
     name: cat.strCategory,
     image: cat.strCategoryThumb,
-    description: cat.strCategoryDescription,
+    description: cat.strCategoryDescription
   };
 }
 
 function adjustAreaShape(area) {
   return {
-    name: area.strArea,
+    name: area.strArea
   };
 }
 
@@ -84,7 +84,7 @@ function adjustIngredientShape(ing) {
     name: ing.strIngredient,
     description: ing.strDescription,
     image: url.INGREDIENT_IMAGE(ing.strIngredient),
-    thumbnail: url.INGREDIENT_THUMB(ing.strIngredient),
+    thumbnail: url.INGREDIENT_THUMB(ing.strIngredient)
   };
 }
 
@@ -94,7 +94,7 @@ export function getMealOfTheDay() {
   if (
     ls.motd &&
     ls.motdTimestamp &&
-    Date.now() - ls.motdTimestamp < motdLifetime
+    Date.now() - ls.motdTimestamp < MOTD_LIFETIME
   ) {
     return Promise.resolve(JSON.parse(ls.motd));
   } else {
@@ -116,12 +116,6 @@ export function search(searchTerm) {
 export function fetchMeal(id) {
   return request(url.LOOKUP_ID(id)).then((data) => adjustShape(data.meals[0]));
 }
-
-// export function fetchCategories() {
-//   return request(url.CATEGORIES).then((data) =>
-//     data.categories.map(adjustCategoryShape)
-//   );
-// }
 
 export function fetchSelectionOptions(type) {
   switch (type) {
@@ -149,15 +143,15 @@ export function loadFavourites() {
   return Promise.resolve(JSON.parse(ls.favourites || "[]"));
 }
 
-export function saveFavourite(id) {
+export function saveFavourite(meal) {
   const faves = JSON.parse(ls.favourites || "[]");
-  faves.push(id);
+  faves.push(meal);
   ls.favourites = JSON.stringify(faves);
   return Promise.resolve(faves);
 }
 
 export function deleteFavourites(ids) {
   const faves = JSON.parse(ls.favourites || "[]");
-  ls.favourites = JSON.stringify(faves.filter((fave) => !(fave in ids)));
+  ls.favourites = JSON.stringify(faves.filter((fave) => !(fave.id in ids)));
   return Promise.resolve(faves);
 }
