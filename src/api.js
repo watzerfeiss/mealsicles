@@ -1,3 +1,5 @@
+import * as storage from "./storage";
+
 const url = {
   SEARCH: (str) =>
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${str}`,
@@ -22,9 +24,6 @@ const url = {
     `https://www.themealdb.com/images/ingredients/${name}-Small.png`;
   }
 };
-
-const ls = localStorage;
-// const ss = sessionStorage;
 
 const MOTD_LIFETIME = 24 * 3600 * 1000;
 
@@ -91,20 +90,17 @@ function adjustIngredientShape(ing) {
 // public api
 
 export function getMealOfTheDay() {
-  if (
-    ls.motd &&
-    ls.motdTimestamp &&
-    Date.now() - ls.motdTimestamp < MOTD_LIFETIME
-  ) {
-    return Promise.resolve(JSON.parse(ls.motd));
-  } else {
-    return request(url.RANDOM).then((data) => {
-      const meal = adjustShape(data.meals[0]);
-      ls.motd = JSON.stringify(meal);
-      ls.motdTimestamp = Date.now();
-      return meal;
-    });
+  const motd = storage.getItem("motd");
+  const timestamp = storage.getItem("motdTimestamp");
+  if (motd && timestamp && Date.now() - timestamp < MOTD_LIFETIME) {
+    return Promise.resolve(motd);
   }
+  return request(url.RANDOM).then((data) => {
+    const meal = adjustShape(data.meals[0]);
+    storage.setItem("motd", meal);
+    storage.setItem("motdTimestamp", Date.now());
+    return meal;
+  });
 }
 
 export function search(searchTerm) {
@@ -140,18 +136,23 @@ export function selectMeals(type, term) {
 }
 
 export function loadFavourites() {
-  return Promise.resolve(JSON.parse(ls.favourites || "[]"));
+  return Promise.resolve(storage.getItem("favourites") || []);
 }
 
 export function saveFavourite(meal) {
-  const faves = JSON.parse(ls.favourites || "[]");
-  faves.push(meal);
-  ls.favourites = JSON.stringify(faves);
+  const faves = storage.getItem("favourites") || [];
+  if (faves.find((fave) => fave.id === meal.id)) {
+    return;
+  }
+  faves.push({ timestamp: Date.now(), id: meal.id, meal });
+  storage.setItem("favourites", faves);
   return Promise.resolve(faves);
 }
 
 export function deleteFavourites(ids) {
-  const faves = JSON.parse(ls.favourites || "[]");
-  ls.favourites = JSON.stringify(faves.filter((fave) => !(fave.id in ids)));
+  const faves = (storage.getItem("favourites") || []).filter(
+    (fave) => !(fave.id in ids)
+  );
+  storage.setItem("favourites", faves);
   return Promise.resolve(faves);
 }

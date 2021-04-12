@@ -7,13 +7,13 @@ function asyncAction(initAction, asyncFunction, ...args) {
       .then((data) => {
         dispatch({
           type: `${initAction.type}/success`,
-          payload: { ...initAction.payload, data },
+          payload: { ...initAction.payload, data }
         });
       })
       .catch((err) => {
         dispatch({
           type: `${initAction.type}/failure`,
-          payload: { ...initAction.payload, err },
+          payload: { ...initAction.payload, err }
         });
       });
   };
@@ -52,8 +52,8 @@ export function loadFavourites() {
   return asyncAction({ type: "load-favourites" }, api.loadFavourites);
 }
 
-export function saveFavourite(id) {
-  return asyncAction({ type: "save-favourite" }, api.saveFavourite, id);
+export function saveFavourite(meal) {
+  return asyncAction({ type: "save-favourite" }, api.saveFavourite, meal);
 }
 
 export function deleteFavourites(ids) {
