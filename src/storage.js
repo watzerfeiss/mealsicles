@@ -5,7 +5,7 @@ function getEntries() {
 }
 
 function setEntries(entries) {
-  localStorage.setItem(STORAGE_NAMESPACE, entries);
+  localStorage.setItem(STORAGE_NAMESPACE, JSON.stringify(entries));
 }
 
 export function setItem(key, item) {
