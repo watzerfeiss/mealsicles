@@ -7,13 +7,13 @@ function asyncAction(initAction, asyncFunction, ...args) {
       .then((data) => {
         dispatch({
           type: `${initAction.type}/success`,
-          payload: { ...initAction.payload, data }
+          payload: { ...(initAction.payload || {}), data }
         });
       })
       .catch((err) => {
         dispatch({
           type: `${initAction.type}/failure`,
-          payload: { ...initAction.payload, err }
+          payload: { ...(initAction.payload || {}), err }
         });
       });
   };
