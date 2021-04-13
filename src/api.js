@@ -142,7 +142,7 @@ export function loadFavourites() {
 export function saveFavourite(meal) {
   const faves = storage.getItem("favourites") || [];
   if (faves.find((fave) => fave.id === meal.id)) {
-    return;
+    return Promise.reject("Meal already favourited");
   }
   faves.push({ timestamp: Date.now(), id: meal.id, meal });
   storage.setItem("favourites", faves);
@@ -151,7 +151,7 @@ export function saveFavourite(meal) {
 
 export function deleteFavourites(ids) {
   const faves = (storage.getItem("favourites") || []).filter(
-    (fave) => !(fave.id in ids)
+    (fave) => !ids.includes(fave.id)
   );
   storage.setItem("favourites", faves);
   return Promise.resolve(faves);
