@@ -63,5 +63,6 @@ export default function MealDetails({ dispatch, meal, favourites }) {
 
 MealDetails.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  meal: shapes.meal
+  meal: shapes.meal,
+  favourites: PropTypes.arrayOf(shapes.favourite)
 };
