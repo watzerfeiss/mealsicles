@@ -6,13 +6,14 @@ import * as shapes from "../shapes";
 import { selectMeals } from "../store/actions";
 
 import MealList from "./MealList";
+import SearchableList from "./SearchableList";
 
 const headings = {
   category: (count, name) =>
     `${count} meal${count > 1 ? "s" : ""} in the ${name} category`,
   area: (count, name) => `${count} ${name} meal${count > 1 ? "s" : ""}`,
   ingredient: (count, name) =>
-    `${count} meal${count > 1 ? "s" : ""} made with ${name}`,
+    `${count} meal${count > 1 ? "s" : ""} made with ${name}`
 };
 
 export default function MealSelectionView({ dispatch, selection }) {
@@ -23,6 +24,8 @@ export default function MealSelectionView({ dispatch, selection }) {
     }
   }, [type, term, selection]);
 
+  const meals = selection?.results || [];
+
   return (
     <div className="meal-selection">
       {selection?.results && (
@@ -30,7 +33,13 @@ export default function MealSelectionView({ dispatch, selection }) {
           <h2>
             {headings[selection.type](selection.results.length, selection.term)}
           </h2>
-          <MealList {...{ dispatch, meals: selection.results }} />
+          <SearchableList
+            searchableItems={meals.map((meal) => ({
+              item: meal,
+              searchKey: meal.name
+            }))}
+            render={(items) => <MealList dispatch={dispatch} meals={items} />}
+          />
         </>
       )}
     </div>
@@ -42,6 +51,6 @@ MealSelectionView.propTypes = {
   selection: PropTypes.shape({
     type: PropTypes.oneOf(["category", "area", "ingredient"]).isRequired,
     term: PropTypes.string.isRequired,
-    results: PropTypes.arrayOf(shapes.meal),
-  }),
+    results: PropTypes.arrayOf(shapes.meal)
+  })
 };

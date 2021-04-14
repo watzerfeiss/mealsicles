@@ -1,13 +1,15 @@
 import React, { useMemo, useState } from "react";
 import PropTypes from "prop-types";
 
-export default function SearchableList({ items, searchableValues, render }) {
+export default function SearchableList({ searchableItems, render }) {
   const [searchTerm, setSearchTerm] = useState("");
   const filteredItems = useMemo(() => {
-    return searchableValues
-      .filter((value) => value.toLowerCase().includes(searchTerm.toLowerCase()))
-      .map((value, idx) => items[idx]);
-  }, [items, searchableValues, searchTerm]);
+    return searchableItems
+      .filter(({ searchKey }) =>
+        searchKey.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      .map(({ item }) => item);
+  }, [searchableItems, searchTerm]);
 
   return (
     <div className="searchable-list">
@@ -25,7 +27,11 @@ export default function SearchableList({ items, searchableValues, render }) {
 }
 
 SearchableList.propTypes = {
-  items: PropTypes.array.isRequired,
-  searchableValues: PropTypes.arrayOf(PropTypes.string).isRequired,
+  searchableItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      item: PropTypes.any.isRequired,
+      searchKey: PropTypes.string.isRequired
+    })
+  ).isRequired,
   render: PropTypes.func.isRequired
 };
