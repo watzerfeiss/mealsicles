@@ -7,6 +7,7 @@
 @import "./homepage/homepage.css";
 
 @import "./searchable-list/searchable-list.css";
+@import "./show-more/show-more.css";
 
 @import "./meal-selection/meal-selection.css";
 @import "./meal-list/meal-list.css";
@@ -15,3 +16,5 @@
 @import "./category-list/category-list.css";
 @import "./area-list/area-list.css";
 @import "./ingredient-list/ingredient-list.css";
+
+@import "./favourites/favourites.css";

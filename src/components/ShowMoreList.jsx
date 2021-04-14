@@ -17,15 +17,21 @@ export default function ShowMoreList({
 
   return (
     <>
-      <span>
-        Showing {finalShownCount} of {items.length} items
-      </span>
       {render(shownItems)}
-      {items.length > shownCount && (
-        <button type="button" onClick={showMore}>
-          Show more
-        </button>
-      )}
+      <div className="show-more">
+        <p className="show-more__count">
+          Showing {finalShownCount} of {items.length} items
+        </p>
+        {items.length > shownCount && (
+          <button
+            className="page-link show-more__btn"
+            type="button"
+            onClick={showMore}
+          >
+            Show more
+          </button>
+        )}
+      </div>
     </>
   );
 }

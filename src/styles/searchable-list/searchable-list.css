@@ -1,6 +1,5 @@
 .searchable-list__searchbar {
   padding: 10px;
-  background-color: rgb(255, 234, 206);
 }
 
 .searchable-list__search-field::placeholder {
