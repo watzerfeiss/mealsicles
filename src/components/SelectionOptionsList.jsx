@@ -6,13 +6,16 @@ import { loadSelectionOptions } from "../store/actions";
 import * as shapes from "../shapes";
 
 import CategoryCard from "./CategoryCard";
+import SearchableList from "./SearchableList";
+import ShowMoreList from "./ShowMoreList";
+import IngredientList from "./IngredientList";
 
 export default function SelectionOptionsList({
   dispatch,
   type,
   selectionTypes,
   isPreview = false,
-  numItems = 3,
+  numItems = 3
 }) {
   useEffect(() => {
     if (!selectionTypes || !selectionTypes[type]) {
@@ -21,9 +24,17 @@ export default function SelectionOptionsList({
   }, [selectionTypes, type]);
 
   const options = selectionTypes ? selectionTypes[type] : null;
-  const numItemsToShow = isPreview ? numItems : options?.length;
+
+  if (options && type === "ingredients") {
+    return (
+      <div className="ingredients">
+        <IngredientList ingredients={options} />
+      </div>
+    );
+  }
 
   //todo shuffle
+  const numItemsToShow = isPreview ? numItems : options?.length;
   return (
     <div className={`${type}${isPreview ? ` ${type}--preview` : ""}`}>
       {options && (
@@ -76,16 +87,16 @@ SelectionOptionsList.propTypes = {
     areas: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string,
-        name: PropTypes.string,
+        name: PropTypes.string
       })
     ),
     ingredients: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string,
-        name: PropTypes.string,
+        name: PropTypes.string
       })
-    ),
+    )
   }),
   numItems: PropTypes.number,
-  isPreview: PropTypes.bool,
+  isPreview: PropTypes.bool
 };
