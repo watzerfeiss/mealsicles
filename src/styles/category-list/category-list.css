@@ -1,16 +1,16 @@
 @import "./category-card.css";
 
+.categories--preview {
+  text-align: center;
+}
+
 .categories-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   grid-gap: 10px;
 
   margin: 0;
-  padding: 0;
+  padding: 10px;
 
   list-style: none;
-}
-
-.categories--preview {
-  text-align: center;
 }
