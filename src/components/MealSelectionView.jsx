@@ -31,7 +31,7 @@ export default function MealSelectionView({ dispatch, selection }) {
     <div className="meal-selection">
       {selection?.results && (
         <>
-          <h2>
+          <h2 className="meal-selection__heading">
             {headings[selection.type](selection.results.length, selection.term)}
           </h2>
           <SearchableList

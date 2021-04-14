@@ -16,7 +16,7 @@ export default function SearchableList({ searchableItems, render }) {
       <div className="searchable-list__searchbar">
         <input
           type="search"
-          className="searchable-list__search-field"
+          className="text-field searchable-list__search-field"
           value={searchTerm}
           onChange={(evt) => setSearchTerm(evt.target.value)}
         />

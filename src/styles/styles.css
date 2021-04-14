@@ -6,6 +6,9 @@
 
 @import "./homepage/homepage.css";
 
+@import "./searchable-list/searchable-list.css";
+
+@import "./meal-selection/meal-selection.css";
 @import "./meal-list/meal-list.css";
 @import "./meal-details/meal-details.css";
 

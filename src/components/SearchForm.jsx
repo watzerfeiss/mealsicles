@@ -8,7 +8,7 @@ export default function SearchForm({
   dispatch,
   compact = false,
   searching = false,
-  setSearching,
+  setSearching
 }) {
   const hist = useHistory();
   const [searchText, setSearchText] = useState("");
@@ -38,7 +38,7 @@ export default function SearchForm({
     >
       {isOpen && (
         <input
-          className="search-form__field"
+          className="text-field search-form__field"
           type="search"
           ref={searchField}
           value={searchText}
@@ -115,5 +115,5 @@ export default function SearchForm({
 }
 
 SearchForm.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired
 };

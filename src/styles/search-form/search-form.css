@@ -5,20 +5,6 @@
   grid-gap: 5px;
 }
 
-.search-form__field,
-.search-form__btn {
-  font: inherit;
-}
-
-.search-form__field {
-  padding: 4px 8px;
-
-  border-radius: 12px;
-  border: 2px solid tomato;
-  outline: none;
-  min-width: 100px;
-}
-
 .search-form__field:focus {
   border-color: gold;
   box-shadow: 0 0 6px 0 gold;
@@ -29,6 +15,7 @@
   place-items: center;
   padding: 4px;
 
+  font: inherit;
   color: white;
 
   background-color: tomato;
