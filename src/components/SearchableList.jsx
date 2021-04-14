@@ -18,6 +18,7 @@ export default function SearchableList({ searchableItems, render }) {
           type="search"
           className="text-field searchable-list__search-field"
           value={searchTerm}
+          placeholder="Search this list"
           onChange={(evt) => setSearchTerm(evt.target.value)}
         />
       </div>
