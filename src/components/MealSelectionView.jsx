@@ -7,6 +7,7 @@ import { selectMeals } from "../store/actions";
 
 import MealList from "./MealList";
 import SearchableList from "./SearchableList";
+import ShowMoreList from "./ShowMoreList";
 
 const headings = {
   category: (count, name) =>
@@ -38,7 +39,16 @@ export default function MealSelectionView({ dispatch, selection }) {
               item: meal,
               searchKey: meal.name
             }))}
-            render={(items) => <MealList dispatch={dispatch} meals={items} />}
+            render={(items) => (
+              <ShowMoreList
+                items={items}
+                initialCount={10}
+                increment={10}
+                render={(items) => (
+                  <MealList dispatch={dispatch} meals={items} />
+                )}
+              />
+            )}
           />
         </>
       )}

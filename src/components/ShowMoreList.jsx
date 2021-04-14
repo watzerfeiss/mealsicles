@@ -7,17 +7,21 @@ export default function ShowMoreList({
   increment,
   render
 }) {
-  const [shownItemCount, setShownItemCount] = useState(initialCount);
-  const shownItems = items.slice(0, shownItemCount);
+  const [shownCount, setShownCount] = useState(initialCount);
+  const finalShownCount = Math.min(shownCount, items.length);
+  const shownItems = items.slice(0, finalShownCount);
 
   const showMore = () => {
-    setShownItemCount((count) => Math.min(count + increment, items.length));
+    setShownCount((count) => count + increment);
   };
 
   return (
     <>
+      <span>
+        Showing {finalShownCount} of {items.length} items
+      </span>
       {render(shownItems)}
-      {items.length < shownItemCount && (
+      {items.length > shownCount && (
         <button type="button" onClick={showMore}>
           Show more
         </button>
