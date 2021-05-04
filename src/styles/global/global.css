@@ -21,7 +21,9 @@ a {
 
 .btn {
   position: relative;
-  display: grid;
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-gap: 5px;
   place-items: center;
 
   padding: 4px;

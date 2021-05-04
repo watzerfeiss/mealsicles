@@ -10,6 +10,9 @@ import {
   setDisplayedMeal
 } from "../store/actions";
 
+import { useMatchMedia } from "../hooks/use-match-media";
+import FavouriteButton from "./FavouriteButton";
+
 export default function MealDetails({ dispatch, meal, favourites }) {
   const { mealId } = useParams();
   useEffect(() => {
@@ -17,6 +20,8 @@ export default function MealDetails({ dispatch, meal, favourites }) {
       dispatch(setDisplayedMeal(mealId));
     }
   }, [mealId]);
+
+  const isNarrowScreen = useMatchMedia("(max-width: 500px)");
 
   const isFavourite = useMemo(
     () => Boolean(favourites.find((fave) => fave.id === mealId)),
@@ -33,9 +38,13 @@ export default function MealDetails({ dispatch, meal, favourites }) {
     <article className="meal-details">
       <header className="meal-details-header">
         <h2 className="meal-details__title">{meal.name}</h2>
-        <button type="button" onClick={onFavouriteClicked}>
-          {isFavourite ? "Remove from" : "Add to"} favourites
-        </button>
+        <span className="meal-details__tags">Tags: {meal.tags.join(", ")}</span>
+        <FavouriteButton
+          className="meal-details__fave-btn"
+          isFavourite={isFavourite}
+          showText={!isNarrowScreen}
+          onClick={onFavouriteClicked}
+        />
       </header>
       <img src={meal.image} alt={meal.name} className="meal-details__image" />
       <div className="meal-details__tags"></div>

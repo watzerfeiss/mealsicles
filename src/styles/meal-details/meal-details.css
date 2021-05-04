@@ -1,3 +1,5 @@
+@import "./fave-btn";
+
 .meal-details {
   display: grid;
   grid-template-columns: 2fr 3fr;
@@ -27,10 +29,14 @@
 
 .meal-details-header {
   grid-area: head;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 5px;
 }
 
 .meal-details__title {
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .meal-details__image {
@@ -40,6 +46,12 @@
 
   border-radius: 10px;
   box-shadow: 1px 1px 5px -1px grey;
+}
+
+.meal-details__fave-btn {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: start;
 }
 
 .meal-instructions {
