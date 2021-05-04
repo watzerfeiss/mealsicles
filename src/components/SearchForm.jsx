@@ -6,21 +6,88 @@ import { search } from "../store/actions";
 
 export default function SearchForm({
   dispatch,
-  compact = false,
-  searching = false,
-  setSearching
+  isCompact = false,
+  isSearching = false,
+  setIsSearching
 }) {
   const hist = useHistory();
   const [searchText, setSearchText] = useState("");
 
-  const isOpen = !compact || searching;
+  const isOpen = !isCompact || isSearching;
 
   const searchField = useRef(null);
   useLayoutEffect(() => {
-    if (searching) {
+    if (isSearching) {
       searchField.current.focus();
     }
-  }, [searching]);
+  }, [isSearching]);
+
+  const submitBtnElement = (
+    <button className="btn search-form__btn" type="submit" value="Search">
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+        />
+      </svg>
+    </button>
+  );
+
+  const cancelBtnElement = (
+    <button
+      className="btn search-form__btn"
+      type="button"
+      onClick={() => setIsSearching(false)}
+      value="Cancel"
+    >
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+  );
+
+  const startSearchBtnElement = (
+    <button
+      className="btn search-form__btn"
+      type="button"
+      onClick={() => setIsSearching(true)}
+      value="Search"
+    >
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+        />
+      </svg>
+    </button>
+  );
 
   return (
     <form
@@ -33,7 +100,7 @@ export default function SearchForm({
         hist.push("/search");
         dispatch(search(searchText));
         searchField.current.blur();
-        setSearching(false);
+        setIsSearching(false);
       }}
     >
       {isOpen && (
@@ -47,68 +114,11 @@ export default function SearchForm({
       )}
       {isOpen ? (
         <>
-          <button className="btn search-form__btn" type="submit" value="Search">
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </button>
-          {compact && (
-            <button
-              className="btn search-form__btn"
-              type="button"
-              onClick={() => setSearching(false)}
-              value="Cancel"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          )}
+          {submitBtnElement}
+          {isCompact && cancelBtnElement}
         </>
       ) : (
-        <button
-          className="btn search-form__btn"
-          type="button"
-          onClick={() => setSearching(true)}
-          value="Search"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
-        </button>
+        startSearchBtnElement
       )}
     </form>
   );

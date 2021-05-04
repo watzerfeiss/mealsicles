@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import * as shapes from "../shapes";
 
 import MealOfTheDay from "./MealOfTheDay";
-import SearchForm from "./SearchForm";
 import SelectionOptionsList from "./SelectionOptionsList";
 
 export default function HomePage({
@@ -16,10 +15,6 @@ export default function HomePage({
       <section className="homepage-section">
         <MealOfTheDay dispatch={dispatch} meal={mealOfTheDay} />
       </section>
-      {/* 
-      <section className="homepage-section homepage-section--search">
-        <SearchForm {...{ dispatch }} />
-      </section> */}
 
       <section className="homepage-section">
         <h2 className="heading">Meal categories</h2>
