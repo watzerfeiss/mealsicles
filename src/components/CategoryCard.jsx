@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import * as shapes from "../shapes";
 
 export default function CategoryCard({
-  category: { id, name, image, description },
+  category: { name, image, description }
 }) {
   const [expanded, setExpanded] = useState(false);
 
@@ -38,5 +38,5 @@ export default function CategoryCard({
 
 CategoryCard.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  category: shapes.category,
+  category: shapes.category
 };

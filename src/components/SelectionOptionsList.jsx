@@ -6,8 +6,6 @@ import { loadSelectionOptions } from "../store/actions";
 import * as shapes from "../shapes";
 
 import CategoryCard from "./CategoryCard";
-import SearchableList from "./SearchableList";
-import ShowMoreList from "./ShowMoreList";
 import IngredientList from "./IngredientList";
 
 export default function SelectionOptionsList({
@@ -48,16 +46,6 @@ export default function SelectionOptionsList({
               case "areas":
                 item = (
                   <Link to={`/area/${option.name}`} className="area-link">
-                    {option.name}
-                  </Link>
-                );
-                break;
-              case "ingredients":
-                item = (
-                  <Link
-                    to={`/ingredient/${option.name}`}
-                    className="page-link ingr-link"
-                  >
                     {option.name}
                   </Link>
                 );
