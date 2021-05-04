@@ -9,17 +9,17 @@ import SelectionOptionsList from "./SelectionOptionsList";
 
 export default function HomePage({
   dispatch,
-  state: { mealOfTheDay, selectionTypes },
+  state: { mealOfTheDay, selectionTypes }
 }) {
   return (
     <>
       <section className="homepage-section">
         <MealOfTheDay dispatch={dispatch} meal={mealOfTheDay} />
       </section>
-
+      {/* 
       <section className="homepage-section homepage-section--search">
         <SearchForm {...{ dispatch }} />
-      </section>
+      </section> */}
 
       <section className="homepage-section">
         <h2 className="heading">Meal categories</h2>
@@ -51,7 +51,7 @@ HomePage.propTypes = {
     selectionTypes: PropTypes.shape({
       categories: PropTypes.arrayOf(shapes.category),
       areas: PropTypes.arrayOf(PropTypes.any),
-      ingredients: PropTypes.arrayOf(PropTypes.any),
-    }),
-  }),
+      ingredients: PropTypes.arrayOf(PropTypes.any)
+    })
+  })
 };

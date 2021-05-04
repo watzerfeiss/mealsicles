@@ -14,6 +14,8 @@
 }
 
 .ingredient-card:hover {
+  background-color: orange;
+  color: white;
   box-shadow: 2px 3px 6px 0 lightgrey;
 }
 
