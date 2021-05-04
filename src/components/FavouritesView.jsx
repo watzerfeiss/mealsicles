@@ -43,7 +43,7 @@ export default function FavouritesView({ dispatch, favourites }) {
       <h2 className="favourites__heading">
         {favourites.length} favourite meals
       </h2>
-      <ul className="meal-list">
+      <ul className="meal-list favourites__list">
         {favourites.map((fave) => (
           <li key={fave.id}>
             {fave.id in removedFavourites ? (

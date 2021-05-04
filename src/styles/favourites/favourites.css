@@ -1,3 +1,4 @@
+@import "./favourite-card.css";
 @import "./removed-favourite.css";
 
 .favourites__heading {
@@ -6,4 +7,8 @@
 
   background-color: white;
   border-bottom: 1px solid grey;
+}
+
+.favourites__list {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
