@@ -25,8 +25,8 @@ export default function FavouriteCard({ dispatch, favourite, onUnfavourite }) {
       <Link to={`/meal-details/${meal.id}`} className="page-link">
         Details
       </Link>
-      <button className="page-link" onClick={onUnfavourite}>
-        Remove from favourites
+      <button className="btn page-link" onClick={onUnfavourite}>
+        Unfavourite
       </button>
     </article>
   );

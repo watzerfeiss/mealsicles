@@ -24,7 +24,7 @@ export default function ShowMoreList({
         </p>
         {items.length > shownCount && (
           <button
-            className="page-link show-more__btn"
+            className="btn page-link show-more__btn"
             type="button"
             onClick={showMore}
           >

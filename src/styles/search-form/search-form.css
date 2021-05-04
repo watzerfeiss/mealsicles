@@ -11,11 +11,6 @@
 }
 
 .search-form__btn {
-  display: grid;
-  place-items: center;
-  padding: 4px;
-
-  font: inherit;
   color: white;
 
   background-color: tomato;

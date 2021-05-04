@@ -17,6 +17,13 @@ body {
 
 .btn {
   position: relative;
+  display: grid;
+  place-items: center;
+
+  padding: 4px;
+
+  font: inherit;
+
   border: 2px solid transparent;
   outline: none;
   cursor: pointer;
