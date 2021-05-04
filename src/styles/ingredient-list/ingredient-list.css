@@ -1,18 +1,12 @@
+@import "./ingredient-card.css";
+
 .ingredients-list {
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
 
   margin: 0;
   padding: 5px;
 
   list-style: none;
-}
-
-.ingredients-list li {
-  flex: 1 1 auto;
-  margin: 5px;
-}
-
-.ingr-link {
-  display: grid;
 }

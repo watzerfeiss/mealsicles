@@ -17,12 +17,10 @@ const url = {
     ingredient: (term) =>
       `https://www.themealdb.com/api/json/v1/1/filter.php?i=${term}`
   },
-  INGREDIENT_IMAGE: (name) => {
-    `https://www.themealdb.com/images/ingredients/${name}.png`;
-  },
-  INGREDIENT_THUMB: (name) => {
-    `https://www.themealdb.com/images/ingredients/${name}-Small.png`;
-  }
+  INGREDIENT_IMAGE: (name) =>
+    `https://www.themealdb.com/images/ingredients/${name}.png`,
+  INGREDIENT_THUMB: (name) =>
+    `https://www.themealdb.com/images/ingredients/${name}-Small.png`
 };
 
 const MOTD_LIFETIME = 24 * 3600 * 1000;

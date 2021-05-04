@@ -25,6 +25,14 @@ export const category = PropTypes.shape({
   description: PropTypes.string.isRequired
 });
 
+export const ingredient = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string.isRequired
+});
+
 export const favourite = PropTypes.shape({
   timestamp: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,

@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 import SearchableList from "./SearchableList";
 import ShowMoreList from "./ShowMoreList";
+import IngredientCard from "./IngredientCard";
 
 export default function IngredientList({ ingredients }) {
   return (
@@ -21,12 +21,7 @@ export default function IngredientList({ ingredients }) {
             <ul className="ingredients-list">
               {items.map((item) => (
                 <li key={item.name}>
-                  <Link
-                    to={`/ingredient/${item.name}`}
-                    className="page-link ingr-link"
-                  >
-                    {item.name}
-                  </Link>
+                  <IngredientCard ingredient={item} />
                 </li>
               ))}
             </ul>

@@ -1,0 +1,37 @@
+.ingredient-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  grid-gap: 5px;
+  place-items: center start;
+
+  padding: 5px;
+
+  color: inherit;
+
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px -1px lightgrey;
+}
+
+.ingredient-card:hover {
+  box-shadow: 2px 3px 6px 0 lightgrey;
+}
+
+.ingredient-card:active {
+  top: 2px;
+  left: 1px;
+}
+
+.ingredient-card__title {
+  grid-row: 1;
+  grid-column: 2;
+
+  margin: 0;
+}
+
+.ingredient-card__image {
+  grid-row: 1;
+  grid-column: 1;
+  width: 100%;
+  height: auto;
+}
