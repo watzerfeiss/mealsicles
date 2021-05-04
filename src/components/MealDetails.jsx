@@ -38,7 +38,11 @@ export default function MealDetails({ dispatch, meal, favourites }) {
     <article className="meal-details">
       <header className="meal-details-header">
         <h2 className="meal-details__title">{meal.name}</h2>
-        <span className="meal-details__tags">Tags: {meal.tags.join(", ")}</span>
+        {meal.tags && (
+          <span className="meal-details__tags">
+            Tags: {meal.tags.join(", ")}
+          </span>
+        )}
         <FavouriteButton
           className="meal-details__fave-btn"
           isFavourite={isFavourite}
@@ -47,7 +51,6 @@ export default function MealDetails({ dispatch, meal, favourites }) {
         />
       </header>
       <img src={meal.image} alt={meal.name} className="meal-details__image" />
-      <div className="meal-details__tags"></div>
       <div className="meal-ingredients">
         <table>
           <caption>Ingredients</caption>

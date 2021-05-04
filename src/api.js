@@ -56,7 +56,7 @@ function adjustShape(meal) {
     image: meal.strMealThumb,
     thumbnail: meal.strMealThumb + "/preview",
     video: meal.strYoutube,
-    tags: meal.strTags?.split(/\s*,\s*/) || [],
+    tags: meal.strTags?.split(/\s*,\s*/) || null,
     ingredients
   };
 }
