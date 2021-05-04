@@ -1,9 +1,9 @@
 # Mealsicles
+
 A simple recipe app using the MealDB API, made with React as a learning project.
 
-This project uses [Parcel](https://parceljs.org) for bundling. Install it globally:  
-`npm i -g parcel-bundler`  
-or as a local dependency:  
-`npm i -D parcel-bundler`
+After forking & cloning the repo, run `npm i` to install dependencies, then
 
-Then just `npm run dev` to start a dev server, or `npm run build` to build for production.
+- `npm run dev` to start a dev server
+- `npm run build` to build for production
+- `npm run deploy` to publish the build to the `origin/gh-pages` branch
