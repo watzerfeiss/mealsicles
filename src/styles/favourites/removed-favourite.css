@@ -1,0 +1,6 @@
+.removed-favourite {
+  display: grid;
+  place-content: center;
+  place-items: center;
+  text-align: center;
+}

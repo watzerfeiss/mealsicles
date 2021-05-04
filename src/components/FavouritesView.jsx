@@ -6,6 +6,7 @@ import { deleteFavourites } from "../store/actions";
 import { favourite } from "../shapes";
 
 import FavouriteCard from "./FavouriteCard";
+import RemovedFavourite from "./RemovedFavourite";
 
 export default function FavouritesView({ dispatch, favourites }) {
   useEffect(() => {
@@ -46,7 +47,10 @@ export default function FavouritesView({ dispatch, favourites }) {
         {favourites.map((fave) => (
           <li key={fave.id}>
             {fave.id in removedFavourites ? (
-              <button onClick={() => onRefavourite(fave.id)}>Undo</button>
+              <RemovedFavourite
+                name={fave.meal.name}
+                onRefavourite={() => onRefavourite(fave.id)}
+              />
             ) : (
               <FavouriteCard
                 {...{
