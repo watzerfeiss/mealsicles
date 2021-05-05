@@ -3,6 +3,7 @@
   display: grid;
   grid-gap: 5px;
 
+  max-width: 400px;
   padding: 8px;
 
   background: white;
@@ -30,9 +31,4 @@
 .category-card__image {
   width: 100%;
   height: auto;
-}
-
-.category-card__description {
-  max-height: 200px;
-  overflow: hidden;
 }

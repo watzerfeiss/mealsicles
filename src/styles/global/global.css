@@ -8,6 +8,10 @@ body {
   font-family: "Segoe UI", Verdana, sans-serif;
 }
 
+#app {
+  position: relative;
+}
+
 a {
   text-decoration: none;
 }
