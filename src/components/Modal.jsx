@@ -7,7 +7,10 @@ import PropTypes from "prop-types";
 function Modal({ onClose, children }) {
   const { modalContainerRef, openModal, closeModal } = useContext(ModalContext);
 
-  useEffect(() => openModal(), []);
+  useEffect(() => {
+    openModal();
+    return () => closeModal();
+  }, []);
 
   const modalElement = (
     <div className="modal">

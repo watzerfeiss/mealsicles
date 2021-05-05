@@ -1,5 +1,7 @@
 @import "./global/global.css";
 
+@import "./modal-container/modal-container.css";
+
 @import "./header/header.css";
 @import "./nav/nav.css";
 @import "./search-form/search-form.css";
