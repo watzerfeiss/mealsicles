@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
@@ -7,6 +7,7 @@ import * as shapes from "../shapes";
 
 import CategoryCard from "./CategoryCard";
 import IngredientList from "./IngredientList";
+import Modal from "./Modal";
 
 export default function SelectionOptionsList({
   dispatch,
@@ -15,6 +16,8 @@ export default function SelectionOptionsList({
   isPreview = false,
   numItems = 3
 }) {
+  const [expandedCategory, setExpandedCategory] = useState(null);
+
   useEffect(() => {
     if (!selectionTypes || !selectionTypes[type]) {
       dispatch(loadSelectionOptions(type));
@@ -41,7 +44,17 @@ export default function SelectionOptionsList({
             let item = null;
             switch (type) {
               case "categories":
-                item = <CategoryCard {...{ dispatch, category: option }} />;
+                item = (
+                  <a
+                    href="#"
+                    onClick={(evt) => {
+                      evt.preventDefault();
+                      setExpandedCategory(option);
+                    }}
+                  >
+                    <CategoryCard category={option} />
+                  </a>
+                );
                 break;
               case "areas":
                 item = (
@@ -60,6 +73,11 @@ export default function SelectionOptionsList({
         <Link to={type} className="page-link all-options-link">
           See all {type}
         </Link>
+      )}
+      {expandedCategory && (
+        <Modal onClose={() => setExpandedCategory(null)}>
+          <CategoryCard category={expandedCategory} isExpanded />
+        </Modal>
       )}
     </div>
   );
