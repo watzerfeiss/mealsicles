@@ -70,5 +70,6 @@ export default function FavouritesView({ dispatch, favourites, motdId }) {
 
 FavouritesView.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  favourites: PropTypes.arrayOf(favourite)
+  favourites: PropTypes.arrayOf(favourite),
+  motdId: PropTypes.string
 };

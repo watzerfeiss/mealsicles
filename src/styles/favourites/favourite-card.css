@@ -44,3 +44,9 @@
   grid-column: 3;
   grid-row: -2;
 }
+
+.favourite-card__motd-badge {
+  align-self: flex-start;
+
+  color: tomato;
+}

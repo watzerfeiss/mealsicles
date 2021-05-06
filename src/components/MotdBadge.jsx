@@ -1,8 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-function MotdBadge() {
+function MotdBadge(props) {
   return (
-    <span className="motd-badge">
+    <span
+      className={`"motd-badge" ${props.className || ""}`}
+      title="Featured meal of the day"
+    >
       <svg
         className="w-6 h-6"
         fill="none"
@@ -20,5 +24,9 @@ function MotdBadge() {
     </span>
   );
 }
+
+MotdBadge.propTypes = {
+  className: PropTypes.string
+};
 
 export default MotdBadge;

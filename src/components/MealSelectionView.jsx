@@ -62,5 +62,6 @@ MealSelectionView.propTypes = {
     type: PropTypes.oneOf(["category", "area", "ingredient"]).isRequired,
     term: PropTypes.string.isRequired,
     results: PropTypes.arrayOf(shapes.meal)
-  })
+  }),
+  motdId: PropTypes.string
 };

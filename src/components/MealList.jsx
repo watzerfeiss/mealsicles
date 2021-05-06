@@ -19,5 +19,6 @@ export default function MealList({ dispatch, meals, motdId }) {
 
 MealList.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  meals: shapes.mealList
+  meals: shapes.mealList,
+  motdId: PropTypes.string
 };

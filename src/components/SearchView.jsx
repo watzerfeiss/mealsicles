@@ -22,5 +22,6 @@ export default function SearchView({ dispatch, searchState, motdId }) {
 
 SearchView.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  searchState: shapes.searchState
+  searchState: shapes.searchState,
+  motdId: PropTypes.string
 };

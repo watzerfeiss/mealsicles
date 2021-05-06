@@ -4,7 +4,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import useAsyncStore from "../hooks/use-async-store";
 import rootReducer from "../store/reducers";
 import initialState from "../store/initial-state";
-import { loadFavourites } from "../store/actions";
+import { loadFavourites, setMealOfTheDay } from "../store/actions";
 
 import Header from "./Header";
 import MainNav from "./MainNav";
@@ -20,6 +20,7 @@ export default function App() {
 
   useEffect(() => {
     dispatch(loadFavourites());
+    dispatch(setMealOfTheDay());
   }, []);
 
   return (

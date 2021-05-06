@@ -1,11 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import { Link } from "react-router-dom";
-import { favourite } from "../shapes";
-import FavouriteButton from "./FavouriteButton";
 
-export default function FavouriteCard({ favourite, onUnfavourite }) {
+import { favourite } from "../shapes";
+
+import FavouriteButton from "./FavouriteButton";
+import MotdBadge from "./MotdBadge";
+
+export default function FavouriteCard({
+  favourite,
+  onUnfavourite,
+  isMotd = false
+}) {
   const { timestamp, meal } = favourite;
   const date = new Date(timestamp);
 
@@ -23,6 +29,7 @@ export default function FavouriteCard({ favourite, onUnfavourite }) {
         width="10"
         height="10"
       />
+      {isMotd && <MotdBadge className="favourite-card__motd-badge" />}
       <Link
         to={`/meal-details/${meal.id}`}
         className="page-link favourite-card__link"
@@ -41,5 +48,6 @@ export default function FavouriteCard({ favourite, onUnfavourite }) {
 
 FavouriteCard.propTypes = {
   favourite,
-  onUnfavourite: PropTypes.func.isRequired
+  onUnfavourite: PropTypes.func.isRequired,
+  isMotd: PropTypes.bool
 };
