@@ -37,6 +37,16 @@ a {
   border: 2px solid transparent;
   outline: none;
   cursor: pointer;
+
+  box-shadow: 2px 2px 5px -1px grey;
+}
+
+.btn:hover {
+  box-shadow: 2px 2px 5px -1px #913626;
+}
+
+.btn:focus {
+  border-color: white;
 }
 
 .btn:active {

@@ -15,19 +15,10 @@
 
   background-color: tomato;
   border-radius: 12px;
-  box-shadow: 2px 2px 5px -1px grey;
-}
-
-.search-form__btn:hover {
-  box-shadow: 2px 2px 5px -1px #913626;
 }
 
 .search-form__btn:active {
   background-color: #d14c34;
-}
-
-.search-form__btn:focus {
-  border-color: white;
 }
 
 .search-form__btn svg {

@@ -14,3 +14,7 @@
 
   list-style: none;
 }
+
+.categories-list__card-link {
+  color: inherit;
+}

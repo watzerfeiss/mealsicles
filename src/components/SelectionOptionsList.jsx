@@ -46,6 +46,7 @@ export default function SelectionOptionsList({
               case "categories":
                 item = (
                   <a
+                    className="categories-list__card-link"
                     href="#"
                     onClick={(evt) => {
                       evt.preventDefault();
@@ -65,7 +66,14 @@ export default function SelectionOptionsList({
                 break;
             }
 
-            return <li key={option.id || option.name}>{item}</li>;
+            return (
+              <li
+                className={`${type}-list__item`}
+                key={option.id || option.name}
+              >
+                {item}
+              </li>
+            );
           })}
         </ul>
       )}
