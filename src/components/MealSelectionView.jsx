@@ -17,7 +17,7 @@ const headings = {
     `${count} meal${count > 1 ? "s" : ""} made with ${name}`
 };
 
-export default function MealSelectionView({ dispatch, selection }) {
+export default function MealSelectionView({ dispatch, selection, motdId }) {
   const { selectionType: type, selectionTerm: term } = useParams();
   useLayoutEffect(() => {
     if (!selection || selection.type !== type || selection.term !== term) {
@@ -45,7 +45,7 @@ export default function MealSelectionView({ dispatch, selection }) {
                 initialCount={10}
                 increment={10}
                 render={(items) => (
-                  <MealList dispatch={dispatch} meals={items} />
+                  <MealList dispatch={dispatch} meals={items} motdId={motdId} />
                 )}
               />
             )}

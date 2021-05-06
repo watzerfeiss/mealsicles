@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import * as shapes from "../shapes";
 
-export default function MealCard({ meal }) {
+export default function MealCard({ meal, isMotd }) {
   return (
     <article className="meal-card">
       <h3 className="meal-card__title">{meal.name}</h3>
@@ -22,5 +22,5 @@ export default function MealCard({ meal }) {
 }
 
 MealCard.propTypes = {
-  meal: shapes.meal.isRequired,
+  meal: shapes.meal.isRequired
 };

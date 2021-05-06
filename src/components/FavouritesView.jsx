@@ -8,7 +8,7 @@ import { favourite } from "../shapes";
 import FavouriteCard from "./FavouriteCard";
 import RemovedFavourite from "./RemovedFavourite";
 
-export default function FavouritesView({ dispatch, favourites }) {
+export default function FavouritesView({ dispatch, favourites, motdId }) {
   useEffect(() => {
     if (!favourites) {
       dispatch(loadFavourites());
@@ -56,7 +56,8 @@ export default function FavouritesView({ dispatch, favourites }) {
                 {...{
                   dispatch,
                   favourite: fave,
-                  onUnfavourite: () => onUnfavourite(fave.id)
+                  onUnfavourite: () => onUnfavourite(fave.id),
+                  isMotd: motdId === fave.id
                 }}
               />
             )}

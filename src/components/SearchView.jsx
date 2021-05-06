@@ -5,12 +5,16 @@ import * as shapes from "../shapes";
 
 import MealList from "./MealList";
 
-export default function SearchView({ dispatch, searchState }) {
+export default function SearchView({ dispatch, searchState, motdId }) {
   return (
     <div className="search-results">
       <h2>Search results for &quot;{searchState?.term}&quot;:</h2>
       {searchState?.results && (
-        <MealList dispatch={dispatch} meals={searchState.results} />
+        <MealList
+          dispatch={dispatch}
+          meals={searchState.results}
+          motdId={motdId}
+        />
       )}
     </div>
   );
@@ -18,5 +22,5 @@ export default function SearchView({ dispatch, searchState }) {
 
 SearchView.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  searchState: shapes.searchState,
+  searchState: shapes.searchState
 };

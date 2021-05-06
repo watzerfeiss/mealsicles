@@ -43,15 +43,33 @@ export default function App() {
           </Route>
 
           <Route path="/search">
-            <SearchView {...{ dispatch, searchState: state.search }} />
+            <SearchView
+              {...{
+                dispatch,
+                searchState: state.search,
+                motdId: state.mealOfTheDay?.id
+              }}
+            />
           </Route>
 
           <Route path="/favourites">
-            <FavouritesView {...{ dispatch, favourites: state.favourites }} />
+            <FavouritesView
+              {...{
+                dispatch,
+                favourites: state.favourites,
+                motdId: state.mealOfTheDay?.id
+              }}
+            />
           </Route>
 
           <Route path="/:selectionType/:selectionTerm">
-            <MealSelectionView {...{ dispatch, selection: state.selection }} />
+            <MealSelectionView
+              {...{
+                dispatch,
+                selection: state.selection,
+                motdId: state.mealOfTheDay?.id
+              }}
+            />
           </Route>
 
           <Route path="/:selectionType">
