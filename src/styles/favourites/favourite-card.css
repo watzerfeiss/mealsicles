@@ -46,6 +46,8 @@
 }
 
 .favourite-card__motd-badge {
+  grid-column: -2;
+  grid-row: 1 / span 2;
   align-self: flex-start;
 
   color: tomato;
