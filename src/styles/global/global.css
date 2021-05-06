@@ -10,6 +10,16 @@ body {
 
 #app {
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  max-width: 1000px;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  background: #f7f7f7;
+  box-shadow: 0 0 20px -5px lightgrey;
 }
 
 a {
@@ -91,16 +101,9 @@ a {
   box-shadow: 0 0 6px 0 gold;
 }
 
-.app-container {
-  max-width: 1000px;
-  min-height: 100vh;
-  margin: 0 auto;
-
-  background: #f7f7f7;
-  box-shadow: 0 0 20px -5px lightgrey;
-}
-
 .main-content {
+  flex-grow: 1;
+
   position: relative;
   padding-top: 1px;
   margin-top: -1px;
@@ -116,4 +119,19 @@ a {
   bottom: 0;
   box-shadow: inset 0 3px 6px -3px rgba(0, 0, 0, 0.4);
   pointer-events: none;
+}
+
+.app-footer {
+  padding: 5px;
+
+  font-size: 0.9em;
+  font-style: italic;
+
+  background-color: white;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 -2px 5px 0 lightgrey;
+}
+
+.app-footer a {
+  color: rgb(192, 48, 23);
 }

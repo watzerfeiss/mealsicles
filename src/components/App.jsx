@@ -24,7 +24,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="app-container">
+    <>
       <Header {...{ dispatch }} />
       <MainNav />
       <main className="main-content">
@@ -84,6 +84,13 @@ export default function App() {
           </Route>
         </Switch>
       </main>
-    </div>
+
+      <footer className="app-footer">
+        &copy; 2021 ppesterev <br />
+        Site icon courtesy of <a href="https://twemoji.twitter.com/">Twemoji</a>
+        , &copy; Twitter, Inc. under{" "}
+        <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>
+      </footer>
+    </>
   );
 }
