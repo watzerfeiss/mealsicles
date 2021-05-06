@@ -26,9 +26,9 @@ export const category = PropTypes.shape({
 });
 
 export const ingredient = PropTypes.shape({
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
   image: PropTypes.string.isRequired,
   thumbnail: PropTypes.string.isRequired
 });
