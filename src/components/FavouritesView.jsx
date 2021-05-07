@@ -10,9 +10,7 @@ import RemovedFavourite from "./RemovedFavourite";
 
 export default function FavouritesView({ dispatch, favourites, motdId }) {
   useEffect(() => {
-    if (!favourites) {
-      dispatch(loadFavourites());
-    }
+    dispatch(loadFavourites());
   }, []);
 
   const [removedFavourites, setRemovedFavourites] = useState({});
