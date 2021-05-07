@@ -20,7 +20,7 @@ export default function FavouriteCard({
       <h3 className="favourite-card__title">{meal.name}</h3>
       <p className="favourite-card__info">
         Favourited on{" "}
-        <time dateTime={date.toISOString()}>{date.toLocaleString()}</time>{" "}
+        <time dateTime={date.toISOString()}>{date.toLocaleDateString()}</time>{" "}
       </p>
       <img
         className="favourite-card__image"

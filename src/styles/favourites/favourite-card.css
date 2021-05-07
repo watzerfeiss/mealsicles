@@ -1,10 +1,15 @@
 .favourite-card {
   display: grid;
-  grid-template-columns: 110px 1fr auto;
-  grid-template-rows: auto auto 1fr auto;
-  grid-gap: 0 5px;
+  grid-template-columns: 120px 1fr auto;
+  grid-template-rows: auto 1fr auto auto;
+  grid-template-areas:
+    "title title badge"
+    "image .     badge"
+    "image info  info"
+    "image link  unfave";
+  grid-gap: 5px;
 
-  padding: 8px;
+  padding: 5px;
 
   background: white;
   border-radius: 5px;
@@ -12,14 +17,14 @@
 }
 
 .favourite-card__title {
+  grid-area: title;
   margin: 0;
-  grid-column: 2 / span 1;
-  grid-row: 1;
 }
 
 .favourite-card__info {
-  grid-row: 2;
-  grid-column: 2 / span 2;
+  grid-area: info;
+  align-self: flex-end;
+  text-align: end;
 
   margin: 0;
 
@@ -29,8 +34,8 @@
 }
 
 .favourite-card__image {
-  grid-column: 1;
-  grid-row: 1 / -1;
+  grid-area: image;
+  align-self: flex-end;
 
   width: 100%;
   height: auto;
@@ -38,19 +43,16 @@
 }
 
 .favourite-card__link {
-  grid-column: 2;
-  grid-row: -2;
+  grid-area: link;
   justify-self: end;
 }
 
 .favourite-card__fave-btn {
-  grid-column: 3;
-  grid-row: -2;
+  grid-area: unfave;
 }
 
 .favourite-card__motd-badge {
-  grid-column: -2;
-  grid-row: 1 / span 2;
+  grid-area: badge;
   align-self: flex-start;
 
   color: tomato;
