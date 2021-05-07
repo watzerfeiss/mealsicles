@@ -11,10 +11,10 @@ import ShowMoreList from "./ShowMoreList";
 
 const headings = {
   category: (count, name) =>
-    `${count} meal${count > 1 ? "s" : ""} in the ${name} category`,
-  area: (count, name) => `${count} ${name} meal${count > 1 ? "s" : ""}`,
+    `${count} meal${count !== 1 ? "s" : ""} in the ${name} category`,
+  area: (count, name) => `${count} ${name} meal${count !== 1 ? "s" : ""}`,
   ingredient: (count, name) =>
-    `${count} meal${count > 1 ? "s" : ""} made with ${name}`
+    `${count} meal${count !== 1 ? "s" : ""} made with ${name}`
 };
 
 export default function MealSelectionView({ dispatch, selection, motdId }) {
@@ -25,15 +25,23 @@ export default function MealSelectionView({ dispatch, selection, motdId }) {
     }
   }, [type, term, selection]);
 
-  const meals = selection?.results || [];
+  const meals = selection?.results;
 
   return (
     <div className="meal-selection">
-      {selection?.results && (
-        <>
+      <>
+        {meals && (
           <h2 className="meal-selection__heading">
-            {headings[selection.type](selection.results.length, selection.term)}
+            {meals.length > 0
+              ? headings[selection.type](
+                  selection.results.length,
+                  selection.term
+                )
+              : headings[selection.type]("Found no", selection.term)}
           </h2>
+        )}
+
+        {meals?.length > 0 && (
           <SearchableList
             searchableItems={meals.map((meal) => ({
               item: meal,
@@ -50,8 +58,8 @@ export default function MealSelectionView({ dispatch, selection, motdId }) {
               />
             )}
           />
-        </>
-      )}
+        )}
+      </>
     </div>
   );
 }

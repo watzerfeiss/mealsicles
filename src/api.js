@@ -129,8 +129,8 @@ export function fetchSelectionOptions(type) {
 }
 
 export function selectMeals(type, term) {
-  return request(url.SELECT[type](term)).then((data) =>
-    data.meals.map(adjustShape)
+  return request(url.SELECT[type](term)).then(
+    (data) => data.meals?.map(adjustShape) || []
   );
 }
 
