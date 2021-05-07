@@ -26,8 +26,8 @@ export default function FavouriteCard({
         className="favourite-card__image"
         src={meal.thumbnail}
         alt={meal.name}
-        width="10"
-        height="10"
+        width="100"
+        height="100"
       />
       {isMotd && <MotdBadge className="favourite-card__motd-badge" />}
       <Link

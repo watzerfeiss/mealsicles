@@ -50,7 +50,13 @@ export default function MealDetails({ dispatch, meal, favourites }) {
           onClick={onFavouriteClicked}
         />
       </header>
-      <img src={meal.image} alt={meal.name} className="meal-details__image" />
+      <img
+        src={meal.image}
+        alt={meal.name}
+        className="meal-details__image"
+        width="100"
+        height="100"
+      />
       <div className="meal-ingredients">
         <table>
           <caption>Ingredients</caption>
