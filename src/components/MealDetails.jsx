@@ -57,24 +57,23 @@ export default function MealDetails({ dispatch, meal, favourites }) {
         width="100"
         height="100"
       />
-      <div className="meal-ingredients">
-        <table>
-          <caption>Ingredients</caption>
-          <tbody>
-            {meal.ingredients.map((ing, index) => (
-              <tr key={index}>
-                <td>{ing.ingredient}</td>
-                <td>{ing.measure}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="meal-instructions">
+      <table className="meal-ingredients">
+        <caption>Ingredients</caption>
+        <tbody>
+          {meal.ingredients.map((ing, index) => (
+            <tr key={index}>
+              <td>{ing.ingredient}</td>
+              <td>{ing.measure}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <section className="meal-instructions">
+        <h3 className="visually-hidden">Instructions</h3>
         {meal.instructions.split(/[\r\n]+/).map((p, index) => (
           <p key={index}>{p}</p>
         ))}
-      </div>
+      </section>
     </article>
   ) : null;
 }

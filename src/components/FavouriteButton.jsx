@@ -36,7 +36,7 @@ function FavouriteButton({ isFavourite, showText, onClick, ...rest }) {
       {...rest}
       className={`btn fave-btn ${rest.className || ""}`}
       type="button"
-      value={faveBtnText}
+      aria-label={faveBtnText}
       onClick={onClick}
     >
       {isFavourite ? faveIcon : notFaveIcon}

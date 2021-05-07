@@ -23,7 +23,7 @@ export default function SearchForm({
   }, [isSearching]);
 
   const submitBtnElement = (
-    <button className="btn search-form__btn" type="submit" value="Search">
+    <button className="btn search-form__btn" type="submit" aria-label="Search">
       <svg
         className="w-6 h-6"
         fill="none"
@@ -46,7 +46,7 @@ export default function SearchForm({
       className="btn search-form__btn"
       type="button"
       onClick={() => setIsSearching(false)}
-      value="Cancel"
+      aria-label="Cancel"
     >
       <svg
         className="w-6 h-6"
@@ -70,7 +70,7 @@ export default function SearchForm({
       className="btn search-form__btn"
       type="button"
       onClick={() => setIsSearching(true)}
-      value="Search"
+      aria-label="Search"
     >
       <svg
         className="w-6 h-6"
@@ -110,6 +110,7 @@ export default function SearchForm({
           ref={searchField}
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
+          aria-label="Search by meal name"
         />
       )}
       {isOpen ? (
