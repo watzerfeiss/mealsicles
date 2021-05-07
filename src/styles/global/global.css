@@ -104,10 +104,11 @@ a {
 
 .main-content {
   flex-grow: 1;
-
   position: relative;
+
   padding-top: 1px;
   margin-top: -1px;
+  padding-bottom: 50px;
 }
 
 .main-content::after {
@@ -123,10 +124,11 @@ a {
 }
 
 .app-footer {
-  padding: 5px;
+  padding: 5px 10px;
 
   font-size: 0.9em;
   font-style: italic;
+  color: slategrey;
 
   background-color: white;
   border-radius: 5px 5px 0 0;
