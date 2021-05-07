@@ -87,6 +87,8 @@ export default function App() {
 
       <footer className="app-footer">
         &copy; 2021 ppesterev <br />
+        Meal data kindly provided by{" "}
+        <a href="https://www.themealdb.com/api.php">TheMealDB</a>.<br />
         Site icon courtesy of <a href="https://twemoji.twitter.com/">Twemoji</a>
         , &copy; Twitter, Inc. under{" "}
         <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>
