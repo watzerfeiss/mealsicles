@@ -10,6 +10,8 @@ import SearchableList from "./SearchableList";
 import ShowMoreList from "./ShowMoreList";
 
 const headings = {
+  search: (count, name) =>
+    `${count} search result${count !== 1 ? "s" : ""} for "${name}"`,
   category: (count, name) =>
     `${count} meal${count !== 1 ? "s" : ""} in the ${name} category`,
   area: (count, name) => `${count} ${name} meal${count !== 1 ? "s" : ""}`,
@@ -67,7 +69,8 @@ export default function MealSelectionView({ dispatch, selection, motdId }) {
 MealSelectionView.propTypes = {
   dispatch: PropTypes.func.isRequired,
   selection: PropTypes.shape({
-    type: PropTypes.oneOf(["category", "area", "ingredient"]).isRequired,
+    type: PropTypes.oneOf(["search", "category", "area", "ingredient"])
+      .isRequired,
     term: PropTypes.string.isRequired,
     results: PropTypes.arrayOf(shapes.meal)
   }),
