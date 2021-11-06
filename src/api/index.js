@@ -10,6 +10,8 @@ const url = {
   AREAS: "https://www.themealdb.com/api/json/v1/1/list.php?a=list",
   INGREDIENTS: "https://www.themealdb.com/api/json/v1/1/list.php?i=list",
   SELECT: {
+    search: (term) =>
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`,
     category: (term) =>
       `https://www.themealdb.com/api/json/v1/1/filter.php?c=${term}`,
     area: (term) =>
