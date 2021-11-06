@@ -19,14 +19,14 @@ SelectionOptionsView.propTypes = {
     areas: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string,
-        name: PropTypes.string,
+        name: PropTypes.string
       })
     ),
     ingredients: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string,
-        name: PropTypes.string,
+        name: PropTypes.string
       })
-    ),
-  }),
+    )
+  })
 };
