@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "parcel src/index.html",
     "build": "parcel build src/index.html --public-url ./",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist -m 'deploy to gh-pages'"
   },
   "author": "ppesterev",
   "license": "ISC",
