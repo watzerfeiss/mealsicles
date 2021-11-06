@@ -10,7 +10,6 @@ import Header from "./Header";
 import MainNav from "./MainNav";
 import HomePage from "./HomePage";
 import FavouritesView from "./FavouritesView";
-import SearchView from "./SearchView";
 import MealSelectionView from "./MealSelectionView";
 import SelectionOptionsView from "./SelectionOptionsView";
 import MealDetails from "./MealDetails";
@@ -25,7 +24,7 @@ export default function App() {
 
   return (
     <>
-      <Header {...{ dispatch }} />
+      <Header />
       <MainNav />
       <main className="main-content">
         <Switch>
@@ -41,16 +40,6 @@ export default function App() {
 
           <Route path="/meal-details">
             <Redirect to="/" />
-          </Route>
-
-          <Route path="/search">
-            <SearchView
-              {...{
-                dispatch,
-                searchState: state.search,
-                motdId: state.mealOfTheDay?.id
-              }}
-            />
           </Route>
 
           <Route path="/favourites">
@@ -71,6 +60,10 @@ export default function App() {
                 motdId: state.mealOfTheDay?.id
               }}
             />
+          </Route>
+
+          <Route path="/search">
+            <Redirect to="/" />
           </Route>
 
           <Route path="/:selectionType">

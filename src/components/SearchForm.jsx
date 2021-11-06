@@ -2,10 +2,7 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 
-import { search } from "../store/actions";
-
 export default function SearchForm({
-  dispatch,
   isCompact = false,
   isSearching = false,
   setIsSearching
@@ -97,8 +94,7 @@ export default function SearchForm({
         if (searchText === "") {
           return;
         }
-        hist.push("/search");
-        dispatch(search(searchText));
+        hist.push(`/search/${searchText}`);
         searchField.current.blur();
         setIsSearching(false);
       }}

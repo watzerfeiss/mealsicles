@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import SearchForm from "./SearchForm";
 import { useMatchMedia } from "../hooks/use-match-media";
 
-function Header({ dispatch }) {
+function Header() {
   const isNarrowScreen = useMatchMedia("(max-width: 500px)");
   const [isSearching, setIsSearching] = useState(false);
 
@@ -21,7 +21,6 @@ function Header({ dispatch }) {
         <Link to="/">Mealsicles</Link>
       </h1>
       <SearchForm
-        dispatch={dispatch}
         isCompact={isNarrowScreen}
         isSearching={isSearching}
         setIsSearching={setIsSearching}
