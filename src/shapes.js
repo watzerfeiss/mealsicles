@@ -4,6 +4,7 @@ export const meal = PropTypes.shape({
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   category: PropTypes.string,
+  area: PropTypes.string,
   instructions: PropTypes.string,
   image: PropTypes.string.isRequired,
   thumbnail: PropTypes.string.isRequired,

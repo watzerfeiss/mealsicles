@@ -54,6 +54,7 @@ function adjustShape(meal) {
     id: meal.idMeal,
     name: meal.strMeal,
     category: meal.strCategory,
+    area: meal.strArea,
     instructions: meal.strInstructions,
     image: meal.strMealThumb,
     thumbnail: meal.strMealThumb + "/preview",
