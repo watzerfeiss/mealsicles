@@ -36,6 +36,18 @@
   margin: 0;
 }
 
+.meal-details__link {
+  color: rgb(182, 39, 14);
+}
+
+.meal-details__link:hover {
+  color: rgb(221, 72, 46);
+}
+
+.meal-details__link:active {
+  color: rgb(109, 27, 13);
+}
+
 .meal-details__tags {
   font-size: 0.9em;
   color: grey;

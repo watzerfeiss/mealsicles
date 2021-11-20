@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import * as shapes from "../shapes";
 
@@ -38,11 +38,28 @@ export default function MealDetails({ dispatch, meal, favourites }) {
     <article className="meal-details">
       <header className="meal-details-header">
         <h2 className="meal-details__title">{meal.name}</h2>
-        {meal.tags && (
-          <span className="meal-details__tags">
-            Tags: {meal.tags.join(", ")}
-          </span>
-        )}
+        <div className="meal-details__meta">
+          {meal.category && (
+            <Link
+              to={`/category/${meal.category}`}
+              className="meal-details__link"
+            >
+              {meal.category}
+            </Link>
+          )}
+          ,{" "}
+          {meal.area && (
+            <Link to={`/area/${meal.area}`} className="meal-details__link">
+              {meal.area}
+            </Link>
+          )}
+          <br />
+          {meal.tags && (
+            <span className="meal-details__tags">
+              Tags: {meal.tags.join(", ")}
+            </span>
+          )}
+        </div>
         <FavouriteButton
           className="meal-details__fave-btn"
           isFavourite={isFavourite}
