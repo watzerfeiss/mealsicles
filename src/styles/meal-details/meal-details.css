@@ -1,11 +1,11 @@
 .meal-details {
   display: grid;
   grid-template-columns: 2fr 3fr;
+  grid-template-rows: auto auto 1fr;
   grid-template-areas:
     "head head"
     "image instr"
-    "ingr instr"
-    "foot foot";
+    "ingr instr";
   grid-gap: 20px;
 
   padding: 10px;
@@ -19,8 +19,7 @@
       "image"
       "tags"
       "ingr"
-      "instr"
-      "foot";
+      "instr";
   }
 }
 
@@ -78,6 +77,7 @@
 
 .meal-ingredients {
   grid-area: ingr;
+  place-self: start stretch;
 }
 
 .meal-ingredients td {
