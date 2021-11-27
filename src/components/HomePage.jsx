@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import * as shapes from "../shapes";
 
 import MealOfTheDay from "./MealOfTheDay";
-import SelectionOptionsList from "./SelectionOptionsList";
+import SelectionOptionsPreview from "./SelectionOptionsPreview";
 
 export default function HomePage({
   dispatch,
@@ -18,9 +18,8 @@ export default function HomePage({
 
       <section className="homepage-section">
         <h2 className="heading">Meal categories</h2>
-        <SelectionOptionsList
+        <SelectionOptionsPreview
           {...{ dispatch, selectionTypes }}
-          isPreview
           type="categories"
         />
       </section>
@@ -28,11 +27,10 @@ export default function HomePage({
       <section className="homepage-section">
         <h2 className="heading">Areas of origin</h2>
         <p className="subheading">Meals from around the world</p>
-        <SelectionOptionsList
+        <SelectionOptionsPreview
           {...{ dispatch, selectionTypes }}
-          isPreview
-          numItems={5}
           type="areas"
+          numItems={5}
         />
       </section>
     </>
