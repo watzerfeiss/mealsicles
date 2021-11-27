@@ -1,11 +1,11 @@
 .meal-details {
   display: grid;
   grid-template-columns: 2fr 3fr;
+  grid-template-rows: auto auto 1fr;
   grid-template-areas:
     "head head"
     "image instr"
-    "ingr instr"
-    "foot foot";
+    "ingr instr";
   grid-gap: 20px;
 
   padding: 10px;
@@ -19,8 +19,7 @@
       "image"
       "tags"
       "ingr"
-      "instr"
-      "foot";
+      "instr";
   }
 }
 
@@ -34,6 +33,18 @@
 
 .meal-details__title {
   margin: 0;
+}
+
+.meal-details__link {
+  color: rgb(182, 39, 14);
+}
+
+.meal-details__link:hover {
+  color: rgb(221, 72, 46);
+}
+
+.meal-details__link:active {
+  color: rgb(109, 27, 13);
 }
 
 .meal-details__tags {
@@ -66,6 +77,7 @@
 
 .meal-ingredients {
   grid-area: ingr;
+  place-self: start stretch;
 }
 
 .meal-ingredients td {
