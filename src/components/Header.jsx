@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import SearchForm from "./SearchForm";
@@ -29,8 +28,6 @@ function Header() {
   );
 }
 
-Header.propTypes = {
-  dispatch: PropTypes.func.isRequired
-};
+Header.propTypes = {};
 
 export default React.memo(Header);

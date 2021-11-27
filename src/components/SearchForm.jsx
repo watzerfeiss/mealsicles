@@ -122,7 +122,6 @@ export default function SearchForm({
 }
 
 SearchForm.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   isCompact: PropTypes.bool,
   isSearching: PropTypes.bool,
   setIsSearching: PropTypes.func.isRequired
