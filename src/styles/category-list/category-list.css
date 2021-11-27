@@ -1,9 +1,5 @@
 @import "./category-card.css";
 
-.categories--preview {
-  text-align: center;
-}
-
 .categories-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));

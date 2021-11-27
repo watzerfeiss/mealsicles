@@ -18,14 +18,13 @@
   font-style: italic;
 }
 
-.homepage-section .categories {
-  justify-self: stretch;
-}
-
-.categories--preview,
-.areas--preview {
+.selection-options-preview {
   display: grid;
   grid-gap: 10px;
+}
+
+.homepage-section .selection-options-preview {
+  justify-self: stretch;
 }
 
 .all-options-link {
